@@ -1,0 +1,500 @@
+/* ============================================================
+   Side Quests To Freedom — Links Page Styles
+   Color Palette:
+     Background  #060610
+     Purple      #6E56CF
+     Green       #00E5A0
+     Text        #E2E2F0
+   ============================================================ */
+
+/* ---------- Reset & Base ---------- */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #060610;
+  color: #E2E2F0;
+  font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  min-height: 100vh;
+  position: relative;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Background: Pixel Grid ---------- */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(110, 86, 207, 0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(110, 86, 207, 0.045) 1px, transparent 1px);
+  background-size: 48px 48px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Subtle radial vignette to keep grid from feeling flat */
+.bg-grid::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 80% 60% at 50% 0%, transparent 40%, #060610 100%);
+}
+
+/* ---------- Ambient Glow Orbs ---------- */
+.bg-orb {
+  position: fixed;
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.bg-orb-1 {
+  width: 420px;
+  height: 420px;
+  background: radial-gradient(circle, rgba(110, 86, 207, 0.18) 0%, transparent 70%);
+  top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.bg-orb-2 {
+  width: 280px;
+  height: 280px;
+  background: radial-gradient(circle, rgba(0, 229, 160, 0.08) 0%, transparent 70%);
+  bottom: 10%;
+  right: -80px;
+}
+
+/* ---------- Container ---------- */
+.container {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: 3.5rem 1.5rem 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ---------- Profile Section ---------- */
+.profile {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+/* Spinning gradient ring around avatar */
+.avatar-wrap {
+  width: 92px;
+  height: 92px;
+  margin: 0 auto 1.5rem;
+  position: relative;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(#6E56CF 0%, #00E5A0 35%, #6E56CF 65%, #6E56CF 100%);
+  animation: spin-ring 6s linear infinite;
+}
+
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+.avatar-inner {
+  position: relative;
+  z-index: 1;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  background: #060610;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  /* Creates a gap between the ring and the content */
+  outline: 3px solid #060610;
+  outline-offset: -3px;
+}
+
+.avatar-inner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.avatar-placeholder {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #6E56CF;
+  letter-spacing: -0.02em;
+  user-select: none;
+}
+
+.site-name {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: #E2E2F0;
+  letter-spacing: -0.02em;
+  margin-bottom: 0.5rem;
+  line-height: 1.2;
+}
+
+.tagline {
+  font-size: 0.875rem;
+  color: rgba(226, 226, 240, 0.55);
+  font-weight: 400;
+  line-height: 1.55;
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+/* ---------- HUD Decor: Corner Brackets ---------- */
+/* Reusable mixin via a wrapper class */
+.hud-bracket {
+  position: relative;
+}
+
+.hud-bracket::before,
+.hud-bracket::after {
+  content: '';
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.hud-bracket::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid var(--bracket-color, #6E56CF);
+  border-left: 2px solid var(--bracket-color, #6E56CF);
+  border-radius: 2px 0 0 0;
+}
+
+.hud-bracket::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid var(--bracket-color, #6E56CF);
+  border-right: 2px solid var(--bracket-color, #6E56CF);
+  border-radius: 0 0 2px 0;
+}
+
+/* ---------- Links Section ---------- */
+.links-section {
+  margin-bottom: 2rem;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(226, 226, 240, 0.35);
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  margin-bottom: 0.85rem;
+  padding-left: 0.1rem;
+}
+
+.section-dot {
+  width: 5px;
+  height: 5px;
+  background: #6E56CF;
+  border-radius: 1px;
+  flex-shrink: 0;
+  transform: rotate(45deg);
+}
+
+/* ---------- Link Card ---------- */
+.link-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.9rem 1.2rem;
+  background: rgba(110, 86, 207, 0.07);
+  border: 1px solid rgba(110, 86, 207, 0.18);
+  border-radius: 10px;
+  text-decoration: none;
+  color: #E2E2F0;
+  margin-bottom: 0.65rem;
+  position: relative;
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.2s ease, box-shadow 0.25s ease;
+
+  /* Entrance animation — JS sets --delay via inline style */
+  opacity: 0;
+  transform: translateY(14px);
+}
+
+.link-card.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: background 0.25s ease, border-color 0.25s ease,
+              transform 0.25s ease, box-shadow 0.25s ease,
+              opacity 0.4s ease;
+}
+
+/* HUD corners inherit from .hud-bracket */
+.link-card::before,
+.link-card::after {
+  content: '';
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  pointer-events: none;
+}
+
+.link-card::before {
+  top: -1px;
+  left: -1px;
+  border-top: 2px solid #6E56CF;
+  border-left: 2px solid #6E56CF;
+  border-radius: 2px 0 0 0;
+}
+
+.link-card::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 2px solid #6E56CF;
+  border-right: 2px solid #6E56CF;
+  border-radius: 0 0 2px 0;
+}
+
+.link-card:hover {
+  background: rgba(110, 86, 207, 0.15);
+  border-color: rgba(110, 86, 207, 0.45);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(110, 86, 207, 0.18);
+  outline: none;
+}
+
+.link-card:hover::before,
+.link-card:hover::after {
+  opacity: 1;
+}
+
+.link-card:focus-visible {
+  outline: 2px solid #6E56CF;
+  outline-offset: 3px;
+}
+
+/* --- Featured card (green accent) --- */
+.link-card.featured {
+  background: rgba(0, 229, 160, 0.06);
+  border-color: rgba(0, 229, 160, 0.25);
+}
+
+.link-card.featured::before {
+  border-color: #00E5A0;
+}
+
+.link-card.featured::after {
+  border-color: #00E5A0;
+}
+
+.link-card.featured:hover {
+  background: rgba(0, 229, 160, 0.12);
+  border-color: rgba(0, 229, 160, 0.5);
+  box-shadow: 0 8px 30px rgba(0, 229, 160, 0.14);
+  transform: translateY(-2px);
+}
+
+/* --- Promo card (discount codes) --- */
+.link-card.promo {
+  cursor: default;
+  background: rgba(110, 86, 207, 0.05);
+  border-style: dashed;
+}
+
+.link-card.promo:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+/* ---------- Link Card Inner Elements ---------- */
+.link-icon {
+  width: 42px;
+  height: 42px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(110, 86, 207, 0.12);
+  border-radius: 8px;
+  color: #6E56CF;
+  font-size: 1.2rem;
+  transition: background 0.25s ease;
+}
+
+.link-icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.link-card.featured .link-icon {
+  background: rgba(0, 229, 160, 0.1);
+  color: #00E5A0;
+}
+
+.link-card:hover .link-icon {
+  background: rgba(110, 86, 207, 0.2);
+}
+
+.link-card.featured:hover .link-icon {
+  background: rgba(0, 229, 160, 0.18);
+}
+
+.link-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.18rem;
+  min-width: 0;
+}
+
+.link-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #E2E2F0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-sub {
+  font-size: 0.75rem;
+  color: rgba(226, 226, 240, 0.45);
+  font-weight: 400;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.link-card.featured .link-sub {
+  color: rgba(0, 229, 160, 0.65);
+}
+
+.link-arrow {
+  color: rgba(226, 226, 240, 0.25);
+  font-size: 1rem;
+  flex-shrink: 0;
+  transition: color 0.2s ease, transform 0.2s ease;
+  line-height: 1;
+}
+
+.link-card:hover .link-arrow {
+  color: #6E56CF;
+  transform: translateX(3px);
+}
+
+.link-card.featured:hover .link-arrow {
+  color: #00E5A0;
+}
+
+/* Promo code badge */
+.promo-badge {
+  flex-shrink: 0;
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #00E5A0;
+  background: rgba(0, 229, 160, 0.12);
+  border: 1px solid rgba(0, 229, 160, 0.3);
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: background 0.2s ease;
+  position: relative;
+}
+
+.promo-badge:hover {
+  background: rgba(0, 229, 160, 0.2);
+}
+
+.promo-badge.copied::after {
+  content: 'Copied!';
+  position: absolute;
+  top: -28px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #00E5A0;
+  color: #060610;
+  font-size: 0.65rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+/* ---------- Footer ---------- */
+.site-footer {
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid rgba(226, 226, 240, 0.07);
+}
+
+.site-footer p {
+  font-size: 0.72rem;
+  color: rgba(226, 226, 240, 0.25);
+  margin-bottom: 0.3rem;
+}
+
+.footer-link {
+  font-size: 0.72rem;
+  color: rgba(110, 86, 207, 0.5);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition: color 0.2s ease;
+}
+
+.footer-link:hover {
+  color: #6E56CF;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 480px) {
+  .container {
+    padding: 2.5rem 1.25rem 3rem;
+  }
+
+  .site-name {
+    font-size: 1.25rem;
+  }
+
+  .link-card {
+    padding: 0.8rem 1rem;
+  }
+}
+
+/* ---------- Reduced Motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .avatar-ring {
+    animation: none;
+  }
+
+  .link-card {
+    opacity: 1;
+    transform: none;
+  }
+
+  .link-card.is-visible {
+    transition: background 0.15s ease, border-color 0.15s ease;
+  }
+}

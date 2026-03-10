@@ -1,0 +1,28 @@
+---
+interface Props {
+  href?: string;
+  title: string;
+  sub: string;
+  ariaLabel?: string;
+  featured?: boolean;
+}
+
+const { href = '#', title, sub, ariaLabel, featured = false } = Astro.props;
+---
+
+<a
+  href={href}
+  class:list={['link-card', { featured }]}
+  target="_blank"
+  rel="noopener noreferrer"
+  aria-label={ariaLabel}
+>
+  <div class="link-icon">
+    <slot />
+  </div>
+  <div class="link-content">
+    <span class="link-title">{title}</span>
+    <span class="link-sub">{sub}</span>
+  </div>
+  <span class="link-arrow" aria-hidden="true">&#8594;</span>
+</a>

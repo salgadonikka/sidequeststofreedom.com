@@ -1,0 +1,251 @@
+---
+import BaseLayout from './BaseLayout.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  tags?: string[];
+}
+
+const { title, description, pubDate, tags = [] } = Astro.props;
+
+const formattedDate = pubDate.toLocaleDateString('en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric',
+});
+---
+
+<BaseLayout title={`${title} — Side Quests To Freedom`} description={description}>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <main class="container blog-container">
+    <nav class="breadcrumb">
+      <a href="/links" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true">›</span>
+      <a href="/blog" class="breadcrumb-link">Blog</a>
+      <span aria-hidden="true">›</span>
+      <span class="breadcrumb-current">{title}</span>
+    </nav>
+
+    <article>
+      <header class="post-header">
+        <time class="post-date" datetime={pubDate.toISOString()}>{formattedDate}</time>
+        <h1 class="post-title">{title}</h1>
+        <p class="post-description">{description}</p>
+        {tags.length > 0 && (
+          <ul class="post-tags" aria-label="Tags">
+            {tags.map((tag) => <li class="post-tag">{tag}</li>)}
+          </ul>
+        )}
+      </header>
+
+      <div class="prose">
+        <slot />
+      </div>
+    </article>
+
+    <footer class="post-footer">
+      <a href="/blog" class="back-link">&#8592; All posts</a>
+    </footer>
+  </main>
+</BaseLayout>
+
+<style>
+  .blog-container {
+    max-width: 680px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(226, 226, 240, 0.35);
+    margin-bottom: 2.5rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #6E56CF;
+  }
+
+  .breadcrumb-current {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
+  }
+
+  .post-header {
+    margin-bottom: 2.5rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(226, 226, 240, 0.07);
+  }
+
+  .post-date {
+    display: block;
+    font-size: 0.75rem;
+    color: rgba(226, 226, 240, 0.35);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-title {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-description {
+    font-size: 1rem;
+    color: rgba(226, 226, 240, 0.55);
+    line-height: 1.6;
+  }
+
+  .post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    list-style: none;
+    margin-top: 1rem;
+  }
+
+  .post-tag {
+    font-size: 0.68rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6E56CF;
+    background: rgba(110, 86, 207, 0.12);
+    border: 1px solid rgba(110, 86, 207, 0.2);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+  }
+
+  /* ---- Prose styles ---- */
+  .prose {
+    color: rgba(226, 226, 240, 0.85);
+    line-height: 1.75;
+    font-size: 0.975rem;
+  }
+
+  .prose :global(h2) {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose :global(h3) {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #E2E2F0;
+    margin: 1.5rem 0 0.5rem;
+  }
+
+  .prose :global(p) {
+    margin-bottom: 1.25rem;
+  }
+
+  .prose :global(a) {
+    color: #6E56CF;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .prose :global(a:hover) {
+    color: #00E5A0;
+  }
+
+  .prose :global(ul),
+  .prose :global(ol) {
+    padding-left: 1.5rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose :global(li) {
+    margin-bottom: 0.4rem;
+  }
+
+  .prose :global(blockquote) {
+    border-left: 3px solid #6E56CF;
+    padding-left: 1rem;
+    margin: 1.5rem 0;
+    color: rgba(226, 226, 240, 0.55);
+    font-style: italic;
+  }
+
+  .prose :global(code) {
+    font-size: 0.85em;
+    background: rgba(110, 86, 207, 0.12);
+    border: 1px solid rgba(110, 86, 207, 0.2);
+    border-radius: 4px;
+    padding: 0.15em 0.4em;
+    color: #00E5A0;
+  }
+
+  .prose :global(pre) {
+    background: rgba(110, 86, 207, 0.08);
+    border: 1px solid rgba(110, 86, 207, 0.15);
+    border-radius: 8px;
+    padding: 1.25rem;
+    overflow-x: auto;
+    margin-bottom: 1.25rem;
+  }
+
+  .prose :global(pre code) {
+    background: none;
+    border: none;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+
+  .prose :global(hr) {
+    border: none;
+    border-top: 1px solid rgba(226, 226, 240, 0.07);
+    margin: 2rem 0;
+  }
+
+  .prose :global(strong) {
+    color: #E2E2F0;
+    font-weight: 600;
+  }
+
+  .post-footer {
+    margin-top: 3rem;
+    padding-top: 1.75rem;
+    border-top: 1px solid rgba(226, 226, 240, 0.07);
+  }
+
+  .back-link {
+    font-size: 0.85rem;
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: #6E56CF;
+  }
+
+  @media (max-width: 480px) {
+    .post-title {
+      font-size: 1.5rem;
+    }
+  }
+</style>
