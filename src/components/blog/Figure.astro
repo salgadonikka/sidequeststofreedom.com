@@ -1,0 +1,41 @@
+---
+/**
+ * Image with optional caption for MDX blog posts.
+ * Usage:
+ *   import Figure from '@/components/blog/Figure.astro';
+ *   <Figure src="/images/screenshot.png" alt="A screenshot" caption="What you're looking at" />
+ */
+interface Props {
+  src: string;
+  alt: string;
+  caption?: string;
+  width?: number | string;
+}
+
+const { src, alt, caption, width } = Astro.props;
+---
+
+<figure class="blog-figure">
+  <img src={src} alt={alt} style={width ? `width: ${typeof width === 'number' ? width + 'px' : width}` : undefined} />
+  {caption && <figcaption>{caption}</figcaption>}
+</figure>
+
+<style>
+  .blog-figure {
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .blog-figure img {
+    max-width: 100%;
+    border-radius: 8px;
+    border: 1px solid rgba(110, 86, 207, 0.2);
+  }
+
+  .blog-figure figcaption {
+    margin-top: 0.6rem;
+    font-size: 0.8rem;
+    color: rgba(226, 226, 240, 0.4);
+    font-style: italic;
+  }
+</style>

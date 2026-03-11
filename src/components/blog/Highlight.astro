@@ -1,0 +1,30 @@
+---
+/**
+ * Pull-quote / highlighted text block for MDX posts.
+ * Usage:
+ *   import Highlight from '@/components/blog/Highlight.astro';
+ *   <Highlight>This is the big idea of the post.</Highlight>
+ */
+---
+
+<div class="highlight-block">
+  <slot />
+</div>
+
+<style>
+  .highlight-block {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #E2E2F0;
+    line-height: 1.5;
+    border-top: 1px solid rgba(0, 229, 160, 0.3);
+    border-bottom: 1px solid rgba(0, 229, 160, 0.3);
+    padding: 1.25rem 0;
+    margin: 2rem 0;
+    text-align: center;
+  }
+
+  .highlight-block :global(p) {
+    margin: 0;
+  }
+</style>

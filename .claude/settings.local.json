@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(npm install)",
-      "Bash(npx astro build)"
+      "Bash(npx astro build)",
+      "Bash(npm install:*)",
+      "Bash(npx astro:*)"
     ]
   }
 }

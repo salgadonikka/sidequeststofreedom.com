@@ -1,0 +1,68 @@
+---
+title: "MDX Demo — Rich Blog Posts"
+description: "How to use components, HTML, and callouts inside a blog post."
+pubDate: 2026-03-10
+tags: ["meta", "writing"]
+draft: true
+---
+
+import Callout from "../../components/blog/Callout.astro";
+import Figure from "../../components/blog/Figure.astro";
+import Highlight from "../../components/blog/Highlight.astro";
+
+Regular markdown still works exactly as before. You can write **bold**, _italic_,
+`inline code`, and all the usual stuff.
+
+## Using Callouts
+
+<Callout type="info">
+  This is an info callout. Great for side notes or context.
+</Callout>
+
+<Callout type="tip" title="Pro tip">
+  Use `tip` callouts for actionable advice.
+</Callout>
+
+<Callout type="warning">
+  Warning callouts draw attention to things to watch out for.
+</Callout>
+
+<Callout type="danger" title="Do not do this">
+  Danger callouts for genuinely bad ideas.
+</Callout>
+
+## Pull Quotes
+
+<Highlight>The big idea you want the reader to walk away with.</Highlight>
+
+## Raw HTML works too
+
+You can drop in raw HTML anywhere:
+
+<div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;">
+  <div style="background: rgba(110,86,207,0.1); border: 1px solid rgba(110,86,207,0.2); border-radius: 8px; padding: 1rem;">
+    Column one
+  </div>
+  <div style="background: rgba(0,229,160,0.08); border: 1px solid rgba(0,229,160,0.15); border-radius: 8px; padding: 1rem;">
+    Column two
+  </div>
+</div>
+
+## Images with Captions
+
+<Figure
+  src="/images/favicon.ico"
+  alt="Site favicon"
+  caption="You can add captions to any image."
+  width={64}
+/>
+
+## Back to Markdown
+
+Everything below the last component is still plain markdown — you can freely mix them.
+
+- List item one
+- List item two
+- List item three
+
+> Blockquotes still work too.

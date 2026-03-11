@@ -1,0 +1,77 @@
+---
+/**
+ * Callout block for MDX blog posts.
+ * Usage:
+ *   import Callout from '@/components/blog/Callout.astro';
+ *   <Callout type="info">Some note here.</Callout>
+ *   <Callout type="warning" title="Heads up">Watch out for this.</Callout>
+ *
+ * Types: info | warning | tip | danger
+ */
+interface Props {
+  type?: 'info' | 'warning' | 'tip' | 'danger';
+  title?: string;
+}
+
+const { type = 'info', title } = Astro.props;
+
+const config = {
+  info:    { icon: 'ℹ', label: 'Note',    accent: '#6E56CF' },
+  warning: { icon: '⚠', label: 'Warning', accent: '#f5a623' },
+  tip:     { icon: '✦', label: 'Tip',     accent: '#00E5A0' },
+  danger:  { icon: '✕', label: 'Danger',  accent: '#e05252' },
+};
+
+const { icon, label, accent } = config[type];
+const displayTitle = title ?? label;
+---
+
+<aside class="callout" style={`--accent: ${accent};`}>
+  <div class="callout-header">
+    <span class="callout-icon" aria-hidden="true">{icon}</span>
+    <span class="callout-title">{displayTitle}</span>
+  </div>
+  <div class="callout-body">
+    <slot />
+  </div>
+</aside>
+
+<style>
+  .callout {
+    border-left: 3px solid var(--accent);
+    background: color-mix(in srgb, var(--accent) 8%, transparent);
+    border-radius: 0 8px 8px 0;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+  }
+
+  .callout-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .callout-icon {
+    font-size: 0.85rem;
+    color: var(--accent);
+  }
+
+  .callout-title {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+
+  .callout-body {
+    font-size: 0.9rem;
+    color: rgba(226, 226, 240, 0.8);
+    line-height: 1.65;
+  }
+
+  .callout-body :global(p) {
+    margin: 0;
+  }
+</style>
