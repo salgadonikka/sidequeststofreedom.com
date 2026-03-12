@@ -1,0 +1,20 @@
+---
+interface Props {
+  slot: string;
+  format?: 'auto' | 'rectangle' | 'horizontal' | 'vertical';
+  fullWidthResponsive?: boolean;
+}
+
+const { slot, format = 'auto', fullWidthResponsive = true } = Astro.props;
+---
+
+<ins
+  class="adsbygoogle"
+  style="display:block"
+  data-ad-client="ca-pub-4780075669532262"
+  data-ad-slot={slot}
+  data-ad-format={format}
+  data-full-width-responsive={fullWidthResponsive ? 'true' : 'false'}
+></ins>
+<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+

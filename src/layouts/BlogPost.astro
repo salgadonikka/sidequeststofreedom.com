@@ -1,14 +1,18 @@
 ---
 import BaseLayout from './BaseLayout.astro';
+import { Image } from 'astro:assets';
+import AdUnit from '../components/AdUnit.astro';
 
 interface Props {
   title: string;
   description: string;
   pubDate: Date;
   tags?: string[];
+  coverImage?: ImageMetadata;
+  coverAlt?: string;
 }
 
-const { title, description, pubDate, tags = [] } = Astro.props;
+const { title, description, pubDate, tags = [], coverImage, coverAlt } = Astro.props;
 
 const formattedDate = pubDate.toLocaleDateString('en-US', {
   year: 'numeric',
@@ -42,6 +46,20 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
           </ul>
         )}
       </header>
+
+      {coverImage && (
+        <div class="cover-image-wrapper">
+          <Image
+            src={coverImage}
+            alt={coverAlt ?? ''}
+            class="cover-image"
+            widths={[640, 960, 1200]}
+            sizes="(max-width: 680px) 100vw, 680px"
+          />
+        </div>
+      )}
+
+      <AdUnit slot="1380933491" />
 
       <div class="prose">
         <slot />
@@ -133,6 +151,19 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
     border: 1px solid rgba(110, 86, 207, 0.2);
     border-radius: 4px;
     padding: 0.2rem 0.5rem;
+  }
+
+  .cover-image-wrapper {
+    margin-bottom: 2rem;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid rgba(110, 86, 207, 0.15);
+  }
+
+  .cover-image {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   /* ---- Prose styles ---- */
