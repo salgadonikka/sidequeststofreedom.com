@@ -1,0 +1,68 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Search — Side Quests To Freedom"
+  description="Search all posts on Side Quests To Freedom."
+  canonicalUrl="https://sidequeststofreedom.com/search"
+>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <main class="container search-container">
+    <header class="search-header">
+      <a href="/blog" class="back-link">&#8592; Blog</a>
+      <h1 class="site-name" style="margin-top: 1.5rem;">Search</h1>
+      <p class="tagline">Find anything across all posts.</p>
+    </header>
+
+    <div id="search"></div>
+  </main>
+</BaseLayout>
+
+<script>
+  import { PagefindUI } from '@pagefind/default-ui';
+  new PagefindUI({
+    element: '#search',
+    showImages: false,
+    resetStyles: false,
+  });
+</script>
+
+<link rel="stylesheet" href="/_pagefind/pagefind-ui.css" />
+
+<style>
+  .search-container {
+    max-width: 680px;
+  }
+
+  .search-header {
+    margin-bottom: 2rem;
+  }
+
+  .back-link {
+    font-size: 0.8rem;
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .back-link:hover {
+    color: #6E56CF;
+  }
+
+  /* Style the Pagefind UI to match the site */
+  :root {
+    --pagefind-ui-scale: 0.9;
+    --pagefind-ui-primary: #6E56CF;
+    --pagefind-ui-text: #E2E2F0;
+    --pagefind-ui-background: rgba(110, 86, 207, 0.05);
+    --pagefind-ui-border: rgba(110, 86, 207, 0.2);
+    --pagefind-ui-tag: rgba(110, 86, 207, 0.12);
+    --pagefind-ui-border-width: 1px;
+    --pagefind-ui-border-radius: 8px;
+    --pagefind-ui-font: inherit;
+  }
+</style>

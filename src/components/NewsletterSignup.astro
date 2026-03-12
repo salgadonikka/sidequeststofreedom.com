@@ -1,0 +1,108 @@
+---
+// Replace the action URL with your Mailchimp / ConvertKit / Beehiiv embed URL
+const FORM_ACTION = 'https://your-newsletter-form-action-url';
+---
+
+<div class="newsletter">
+  <p class="newsletter-eyebrow">Free newsletter</p>
+  <h2 class="newsletter-heading">Get the quest log in your inbox</h2>
+  <p class="newsletter-sub">Side hustle breakdowns, income reports, and strategies — delivered weekly. No spam, ever.</p>
+  <form class="newsletter-form" action={FORM_ACTION} method="POST" target="_blank">
+    <input
+      type="email"
+      name="email"
+      placeholder="your@email.com"
+      required
+      class="newsletter-input"
+      aria-label="Email address"
+    />
+    <button type="submit" class="newsletter-btn">Subscribe</button>
+  </form>
+</div>
+
+<style>
+  .newsletter {
+    margin-top: 3rem;
+    padding: 1.75rem;
+    background: rgba(0, 229, 160, 0.04);
+    border: 1px solid rgba(0, 229, 160, 0.15);
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .newsletter-eyebrow {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #00E5A0;
+    margin-bottom: 0.5rem;
+  }
+
+  .newsletter-heading {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+
+  .newsletter-sub {
+    font-size: 0.85rem;
+    color: rgba(226, 226, 240, 0.5);
+    line-height: 1.55;
+    margin-bottom: 1.25rem;
+  }
+
+  .newsletter-form {
+    display: flex;
+    gap: 0.5rem;
+    max-width: 420px;
+    margin: 0 auto;
+  }
+
+  .newsletter-input {
+    flex: 1;
+    font-family: inherit;
+    font-size: 0.875rem;
+    color: #E2E2F0;
+    background: rgba(226, 226, 240, 0.05);
+    border: 1px solid rgba(226, 226, 240, 0.12);
+    border-radius: 8px;
+    padding: 0.6rem 0.9rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+
+  .newsletter-input::placeholder {
+    color: rgba(226, 226, 240, 0.3);
+  }
+
+  .newsletter-input:focus {
+    border-color: #00E5A0;
+  }
+
+  .newsletter-btn {
+    font-family: inherit;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #060610;
+    background: #00E5A0;
+    border: none;
+    border-radius: 8px;
+    padding: 0.6rem 1.1rem;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: opacity 0.2s;
+  }
+
+  .newsletter-btn:hover {
+    opacity: 0.88;
+  }
+
+  @media (max-width: 480px) {
+    .newsletter-form {
+      flex-direction: column;
+    }
+  }
+</style>

@@ -1,17 +1,39 @@
 ---
 import BlogPost from '../../layouts/BlogPost.astro';
 import { getCollection } from 'astro:content';
+import { readingTime } from '../../utils/readingTime';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => !data.draft);
   return posts.map((post) => ({
     params: { slug: post.slug },
-    props: { post },
+    props: { post, allPosts: posts },
   }));
 }
 
-const { post } = Astro.props;
-const { Content } = await post.render();
+const { post, allPosts } = Astro.props;
+const { Content, headings } = await post.render();
+
+const sortedPosts = [...allPosts].sort(
+  (a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime()
+);
+
+const currentIdx = sortedPosts.findIndex((p) => p.slug === post.slug);
+const prevPost = currentIdx < sortedPosts.length - 1 ? sortedPosts[currentIdx + 1] : null;
+const nextPost = currentIdx > 0 ? sortedPosts[currentIdx - 1] : null;
+
+const relatedPosts = allPosts
+  .filter((p) => {
+    if (p.slug === post.slug) return false;
+    const sharedTags = (p.data.tags ?? []).filter((t) =>
+      (post.data.tags ?? []).includes(t)
+    );
+    return sharedTags.length > 0;
+  })
+  .slice(0, 3);
+
+const minutes = readingTime(post.body);
+const postUrl = `https://sidequeststofreedom.com/blog/${post.slug}`;
 ---
 
 <BlogPost
@@ -21,6 +43,12 @@ const { Content } = await post.render();
   tags={post.data.tags}
   coverImage={post.data.coverImage}
   coverAlt={post.data.coverAlt}
+  headings={headings}
+  readingTime={minutes}
+  relatedPosts={relatedPosts}
+  prevPost={prevPost ? { slug: prevPost.slug, title: prevPost.data.title } : null}
+  nextPost={nextPost ? { slug: nextPost.slug, title: nextPost.data.title } : null}
+  postUrl={postUrl}
 >
   <Content />
 </BlogPost>

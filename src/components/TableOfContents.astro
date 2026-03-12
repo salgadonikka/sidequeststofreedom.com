@@ -1,0 +1,99 @@
+---
+interface Heading {
+  depth: number;
+  slug: string;
+  text: string;
+}
+
+interface Props {
+  headings: Heading[];
+}
+
+const { headings } = Astro.props;
+const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+{filtered.length > 0 && (
+  <nav class="toc" aria-label="Table of contents">
+    <p class="toc-title">On this page</p>
+    <ol class="toc-list">
+      {filtered.map((h) => (
+        <li class:list={['toc-item', h.depth === 3 && 'toc-item--sub']}>
+          <a href={`#${h.slug}`} class="toc-link">{h.text}</a>
+        </li>
+      ))}
+    </ol>
+  </nav>
+)}
+
+<style>
+  .toc {
+    padding: 1.25rem;
+    background: rgba(110, 86, 207, 0.05);
+    border: 1px solid rgba(110, 86, 207, 0.15);
+    border-radius: 10px;
+  }
+
+  .toc-title {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(226, 226, 240, 0.35);
+    margin-bottom: 0.75rem;
+  }
+
+  .toc-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.1rem;
+  }
+
+  .toc-item {
+    line-height: 1.4;
+  }
+
+  .toc-item--sub {
+    padding-left: 0.85rem;
+  }
+
+  .toc-link {
+    font-size: 0.8rem;
+    color: rgba(226, 226, 240, 0.55);
+    text-decoration: none;
+    display: block;
+    padding: 0.2rem 0;
+    transition: color 0.2s;
+    border-left: 2px solid transparent;
+    padding-left: 0.5rem;
+  }
+
+  .toc-link:hover,
+  .toc-link.active {
+    color: #6E56CF;
+    border-left-color: #6E56CF;
+  }
+</style>
+
+<script>
+  const links = document.querySelectorAll<HTMLAnchorElement>('.toc-link');
+  const headingEls = Array.from(links)
+    .map((l) => document.querySelector(decodeURIComponent(new URL(l.href).hash)))
+    .filter(Boolean) as Element[];
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          links.forEach((l) => l.classList.remove('active'));
+          const idx = headingEls.indexOf(entry.target);
+          if (idx !== -1) links[idx]?.classList.add('active');
+        }
+      }
+    },
+    { rootMargin: '0px 0px -70% 0px' }
+  );
+
+  headingEls.forEach((el) => observer.observe(el));
+</script>
