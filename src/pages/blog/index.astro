@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
 import { readingTime } from '../../utils/readingTime';
 import AdUnit from '../../components/AdUnit.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
@@ -10,7 +11,6 @@ const posts = (await getCollection('blog', ({ data }) => !data.draft))
 const allTags = [...new Set(posts.flatMap((p) => p.data.tags ?? []))].sort();
 const totalMinutes = posts.reduce((sum, p) => sum + readingTime(p.body), 0);
 
-const year = new Date().getFullYear();
 const [featured, ...rest] = posts;
 ---
 
@@ -126,10 +126,7 @@ const [featured, ...rest] = posts;
         </>
       )}
 
-      <footer class="site-footer">
-        <p>&copy; {year} Side Quests To Freedom</p>
-        <a href="https://sidequeststofreedom.com" class="footer-link">sidequeststofreedom.com</a>
-      </footer>
+      <SiteFooter />
     </div>
 
     <!-- Right: sidebar with tags + ad -->

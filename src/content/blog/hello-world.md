@@ -23,27 +23,27 @@ showToc: true
 readingTime: true
 ---
 
-I have a job. It pays the bills. Some days it's fine, some days it isn't — but most days, somewhere in the back of my mind, there's a quiet question I can't shake: **is this it?**
+I have a job. It pays the bills. Some days it's fine, some days it isn't. But most days, somewhere in the back of my mind, there's a quiet question I can't shake: **is this it?**
 
-Not in a dramatic, quit-everything way. I'm not running away from anything. I just want to know what it feels like to be on the other side — where my income isn't tied to a single employer, where I can work from wherever I want, and where the hours I spend building something actually feel like mine.
+Not in a dramatic, quit-everything way. I'm not running away from anything. I just want to know what it feels like to be on the other side, where my income isn't tied to a single employer, where I can work from wherever I want, and where the hours I spend building something actually feel like mine.
 
 That's why I started this blog.
 
 ---
 
-## Why I'm doing this — and why I'm documenting it
+## Why I'm doing this, and why I'm documenting it
 
 There are a thousand "passive income" accounts online. Most of them either sell you a dream without a roadmap, or they've already made it and forgotten what starting from zero actually feels like.
 
-I want this to be something different. **I'm starting from the beginning, in public.** No income yet from this. No viral posts. No proof it'll work — just a plan, a system, and the willingness to figure it out one step at a time.
+I want this to be something different. **I'm starting from the beginning, in public.** No income yet from this. No viral posts. No proof it'll work. Just a plan, a system, and the willingness to figure it out one step at a time.
 
-My three goals are simple — and I think they'll feel familiar if you're here reading this:
+My three goals are simple, and I think they'll feel familiar if you're here reading this:
 
-> **Location freedom.** The ability to work from anywhere — not just "remote work," but the genuine option to pick up and go when life calls for it.
+> **Location freedom.** The ability to work from anywhere, not just "remote work," but the genuine option to pick up and go when life calls for it.
 >
 > **Time freedom.** Owning my hours. Not asking permission for a day off. Building something that doesn't require me to be present every minute to function.
 >
-> **Meaningful direction.** Pointing my energy at things that feel worth doing — not just things that are expected of me.
+> **Meaningful direction.** Pointing my energy at things that feel worth doing, not just things that are expected of me.
 
 I don't think these things happen overnight. I've seen enough hustle-culture content to know that anyone promising you six figures in 90 days is selling something. What I believe in is this: _slow, consistent, boring systems that stack over time._ That's the whole philosophy of this blog.
 
@@ -51,11 +51,11 @@ I don't think these things happen overnight. I've seen enough hustle-culture con
 
 ## The four quests I'm going to explore
 
-I've broken everything down into four categories — I'm calling them _quests_, because building income on the side is genuinely more like a game campaign than a sprint. You don't finish it in one sitting. You level up, unlock new things, and come back to it.
+I've broken everything down into four categories. I'm calling them _quests_, because building income on the side is genuinely more like a game campaign than a sprint. You don't finish it in one sitting. You level up, unlock new things, and come back to it.
 
 ### 🤖 Quest 01 — AI Income
 
-Using AI tools to build income streams — digital products, content automation, voiceovers, and more. The goal here is to leverage what's available right now, while most people are still figuring out that it exists.
+Using AI tools to build income streams: digital products, content automation, voiceovers, and more. The goal here is to leverage what's available right now, while most people are still figuring out that it exists.
 
 ### 💸 Quest 02 — Passive Income
 
@@ -67,7 +67,7 @@ Landing clients, setting rates, and building a skill-based income stream outside
 
 ### 💰 Quest 04 — Money Systems
 
-Budgeting, saving, and building financial structure on irregular income — the foundation everything else needs. You can't build income stacks on a leaking foundation. This quest comes first, even if it's the least glamorous.
+Budgeting, saving, and building financial structure on irregular income, the foundation everything else needs. You can't build income stacks on a leaking foundation. This quest comes first, even if it's the least glamorous.
 
 ---
 
@@ -89,7 +89,7 @@ I'll be publishing on this blog, and also across Instagram, TikTok, Pinterest, Y
 
 I'm not doing this to get rich. I want to get _free_. There's a difference.
 
-Rich is a number that moves every time you get close to it. Free is specific — it's the moment when your monthly income from things you've built is enough to make the job optional. Not to quit necessarily. Just to make it a choice.
+Rich is a number that moves every time you get close to it. Free is specific. It's the moment when your monthly income from things you've built is enough to make the job optional. Not to quit necessarily. Just to make it a choice.
 
 I don't know exactly when that happens. But I know the direction. And I know that starting is the only thing that actually moves the needle.
 

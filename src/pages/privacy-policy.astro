@@ -1,0 +1,212 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const lastUpdated = 'March 16, 2025';
+---
+
+<BaseLayout
+  title="Privacy Policy — Side Quests To Freedom"
+  description="Privacy Policy for sidequeststofreedom.com — how we collect, use, and protect your information."
+  canonicalUrl="https://sidequeststofreedom.com/privacy-policy"
+>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+
+  <main class="container page-container">
+    <nav class="breadcrumb">
+      <a href="/links" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true">›</span>
+      <span>Privacy Policy</span>
+    </nav>
+
+    <article class="prose-page">
+      <h1>Privacy Policy</h1>
+      <p class="meta">Last updated: {lastUpdated}</p>
+
+      <p>
+        This Privacy Policy describes how Side Quests To Freedom ("we", "us", or "our") collects,
+        uses, and shares information when you visit <strong>sidequeststofreedom.com</strong> (the "Site").
+        By using the Site, you agree to the collection and use of information as described below.
+      </p>
+
+      <h2>1. Information We Collect</h2>
+      <p>
+        We do not directly collect personal information such as your name or email address unless
+        you voluntarily provide it (for example, by contacting us). However, certain third-party
+        services embedded in or linked from the Site may collect data automatically when you visit.
+      </p>
+
+      <h3>Automatically Collected Data</h3>
+      <p>
+        Like most websites, our hosting provider and third-party services may automatically collect
+        standard log data, including your IP address, browser type, referring URL, pages visited,
+        and date/time of access. This data is used for security and analytics purposes.
+      </p>
+
+      <h2>2. Cookies</h2>
+      <p>
+        Cookies are small text files stored on your device by your browser. We use cookies in the
+        following ways:
+      </p>
+      <ul>
+        <li>
+          <strong>Advertising cookies:</strong> This Site displays ads served by
+          <strong>Google AdSense</strong>, which uses cookies to personalise ads based on your
+          browsing activity across the web. Google may use the DoubleClick cookie to serve ads
+          based on your prior visits to this and other websites.
+        </li>
+        <li>
+          <strong>Analytics cookies:</strong> We may use tools such as Google Analytics to
+          understand how visitors use the Site. These tools collect anonymous aggregate data
+          (page views, session duration, traffic sources).
+        </li>
+      </ul>
+      <p>
+        You can control cookie preferences through your browser settings or opt out of
+        personalised advertising via <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google's Ad Settings</a>.
+        For more information on how Google uses data when you visit a partner site, see
+        <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener noreferrer">Google's Privacy &amp; Terms</a>.
+      </p>
+
+      <h2>3. Third-Party Links and Affiliate Links</h2>
+      <p>
+        The Site contains links to external websites, including affiliate links. When you click an
+        affiliate link and make a purchase, we may earn a commission. These third-party sites have
+        their own privacy policies, and we have no responsibility or liability for their content or
+        activities. We encourage you to review the privacy policy of any site you visit.
+      </p>
+
+      <h2>4. How We Use Information</h2>
+      <p>Any information collected is used to:</p>
+      <ul>
+        <li>Operate and maintain the Site</li>
+        <li>Understand how visitors use the Site (aggregate analytics)</li>
+        <li>Serve relevant advertisements via Google AdSense</li>
+        <li>Respond to enquiries you send us directly</li>
+      </ul>
+      <p>We do not sell, trade, or rent personal information to third parties.</p>
+
+      <h2>5. Children's Privacy</h2>
+      <p>
+        This Site is not directed at children under the age of 13. We do not knowingly collect
+        personal information from children. If you believe a child has provided us with personal
+        information, please contact us so we can delete it.
+      </p>
+
+      <h2>6. Your Rights</h2>
+      <p>
+        Depending on your location, you may have the right to access, correct, or delete personal
+        data we hold about you, or to object to certain processing. To exercise any of these rights,
+        please contact us via the <a href="/contact">Contact page</a>.
+      </p>
+
+      <h2>7. Changes to This Policy</h2>
+      <p>
+        We may update this Privacy Policy from time to time. Changes will be posted on this page
+        with an updated "Last updated" date. Continued use of the Site after any changes constitutes
+        your acceptance of the revised policy.
+      </p>
+
+      <h2>8. Contact</h2>
+      <p>
+        If you have questions about this Privacy Policy, please reach out via the
+        <a href="/contact">Contact page</a>.
+      </p>
+    </article>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 680px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(226, 226, 240, 0.35);
+    margin-bottom: 2.5rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #6E56CF;
+  }
+
+  .prose-page h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.75rem !important;
+    color: rgba(226, 226, 240, 0.3) !important;
+    margin-bottom: 2rem !important;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(226, 226, 240, 0.07);
+  }
+
+  .prose-page h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose-page h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #E2E2F0;
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .prose-page p {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+  }
+
+  .prose-page ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .prose-page li {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 0.4rem;
+  }
+
+  .prose-page strong {
+    color: #E2E2F0;
+    font-weight: 600;
+  }
+
+  .prose-page a {
+    color: #6E56CF;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .prose-page a:hover {
+    color: #00E5A0;
+  }
+</style>

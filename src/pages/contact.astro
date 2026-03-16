@@ -1,0 +1,266 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout
+  title="Contact — Side Quests To Freedom"
+  description="Get in touch with Side Quests To Freedom for questions, feedback, or collaboration opportunities."
+  canonicalUrl="https://sidequeststofreedom.com/contact"
+>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <main class="container page-container">
+    <nav class="breadcrumb">
+      <a href="/links" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true">›</span>
+      <span>Contact</span>
+    </nav>
+
+    <article class="prose-page">
+      <h1>Get in Touch</h1>
+
+      <p class="lead">
+        Have a question, spotted an error, or want to collaborate? I'd love to hear from you.
+      </p>
+
+      <div class="contact-cards">
+
+        <a href="mailto:sidequeststofreedom@gmail.com" class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="5" width="20" height="14" rx="3"/>
+              <path d="M2 9l10 6 10-6"/>
+            </svg>
+          </div>
+          <div class="contact-body">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">sidequeststofreedom@gmail.com</span>
+          </div>
+          <span class="contact-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+
+        <a href="https://www.instagram.com/sidequeststofreedom/" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5.5"/>
+              <circle cx="12" cy="12" r="4.5"/>
+              <circle cx="17.6" cy="6.4" r="1.1" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="contact-body">
+            <span class="contact-label">Instagram</span>
+            <span class="contact-value">@sidequeststofreedom</span>
+          </div>
+          <span class="contact-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+
+        <a href="https://www.youtube.com/@SideQuestsToFreedom" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="5" width="20" height="14" rx="3.5"/>
+              <path d="M10 9.5l5 2.5-5 2.5V9.5z" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="contact-body">
+            <span class="contact-label">YouTube</span>
+            <span class="contact-value">Side Quests To Freedom</span>
+          </div>
+          <span class="contact-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+
+        <a href="https://www.facebook.com/SideQuestsToFreedom" target="_blank" rel="noopener noreferrer" class="contact-card">
+          <div class="contact-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="5" width="20" height="14" rx="3.5"/>
+              <path d="M10 9.5l5 2.5-5 2.5V9.5z" fill="currentColor" stroke="none"/>
+            </svg>
+          </div>
+          <div class="contact-body">
+            <span class="contact-label">Facebook</span>
+            <span class="contact-value">Side Quests To Freedom</span>
+          </div>
+          <span class="contact-arrow" aria-hidden="true">&#8594;</span>
+        </a>
+
+      </div>
+
+      <h2>What I Can Help With</h2>
+      <ul>
+        <li><strong>General questions</strong> about content on the site</li>
+        <li><strong>Corrections</strong> — spotted something inaccurate? Please let me know</li>
+        <li><strong>Collaborations</strong> — sponsored content, guest posts, or brand partnerships</li>
+        <li><strong>Media enquiries</strong></li>
+      </ul>
+
+      <p class="note">
+        I aim to respond within 2–3 business days. For the fastest response, email is best.
+      </p>
+    </article>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 680px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(226, 226, 240, 0.35);
+    margin-bottom: 2.5rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #6E56CF;
+  }
+
+  .prose-page h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+  }
+
+  /* Contact cards */
+  .contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 0.65rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-card {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 0.9rem 1.2rem;
+    background: rgba(110, 86, 207, 0.07);
+    border: 1px solid rgba(110, 86, 207, 0.18);
+    border-radius: 10px;
+    text-decoration: none;
+    color: #E2E2F0;
+    transition: background 0.2s, border-color 0.2s;
+  }
+
+  .contact-card:hover {
+    background: rgba(110, 86, 207, 0.14);
+    border-color: rgba(110, 86, 207, 0.4);
+  }
+
+  .contact-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(110, 86, 207, 0.12);
+    border-radius: 8px;
+    color: #6E56CF;
+    transition: background 0.2s;
+  }
+
+  .contact-card:hover .contact-icon {
+    background: rgba(110, 86, 207, 0.22);
+  }
+
+  .contact-body {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.15rem;
+    min-width: 0;
+  }
+
+  .contact-label {
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(226, 226, 240, 0.35);
+  }
+
+  .contact-value {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: #E2E2F0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .contact-arrow {
+    font-size: 1rem;
+    color: rgba(110, 86, 207, 0.4);
+    flex-shrink: 0;
+    transition: color 0.2s;
+  }
+
+  .contact-card:hover .contact-arrow {
+    color: #6E56CF;
+  }
+
+  /* Prose */
+  .prose-page h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose-page p {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+  }
+
+  .prose-page ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .prose-page li {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 0.35rem;
+  }
+
+  .prose-page strong {
+    color: #E2E2F0;
+    font-weight: 600;
+  }
+
+  .note {
+    font-size: 0.85rem !important;
+    color: rgba(226, 226, 240, 0.4) !important;
+    padding: 0.85rem 1rem;
+    border-left: 2px solid rgba(110, 86, 207, 0.3);
+    margin-top: 1.5rem;
+  }
+</style>

@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+
+const lastUpdated = 'March 16, 2025';
+---
+
+<BaseLayout
+  title="Disclaimer — Side Quests To Freedom"
+  description="Disclaimer for sidequeststofreedom.com — affiliate disclosure, earnings disclaimer, and important notices."
+  canonicalUrl="https://sidequeststofreedom.com/disclaimer"
+>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+
+  <main class="container page-container">
+    <nav class="breadcrumb">
+      <a href="/links" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true">›</span>
+      <span>Disclaimer</span>
+    </nav>
+
+    <article class="prose-page">
+      <h1>Disclaimer</h1>
+      <p class="meta">Last updated: {lastUpdated}</p>
+
+      <h2>General Information</h2>
+      <p>
+        The information provided on Side Quests To Freedom (<strong>sidequeststofreedom.com</strong>)
+        is for general informational and educational purposes only. Nothing on this Site constitutes
+        professional financial, legal, tax, or investment advice. Always consult a qualified
+        professional before making financial decisions.
+      </p>
+
+      <h2>No Earnings Guarantee</h2>
+      <p>
+        Any income figures, case studies, or results mentioned on this Site are illustrative
+        examples only. Your results will vary based on your experience, effort, market conditions,
+        and many other factors beyond our control. We make no guarantee — express or implied — that
+        you will earn any specific amount of money by following the strategies or advice discussed
+        here.
+      </p>
+
+      <h2>Affiliate Disclosure</h2>
+      <p>
+        Side Quests To Freedom participates in affiliate marketing programs. This means some links
+        on this Site are affiliate links: if you click through and make a purchase, we may earn a
+        commission at no additional cost to you.
+      </p>
+      <p>
+        We only recommend products and services we believe are genuinely useful. Affiliate
+        relationships do not influence our editorial opinions — but you should be aware they exist.
+        In accordance with the FTC's guidelines, affiliate links are disclosed in the relevant posts
+        or pages where they appear.
+      </p>
+
+      <h2>Third-Party Links</h2>
+      <p>
+        This Site may contain links to third-party websites. These links are provided for your
+        convenience. We have no control over the content of those sites and accept no responsibility
+        for them or for any loss or damage that may arise from your use of them.
+      </p>
+
+      <h2>Accuracy of Information</h2>
+      <p>
+        We make every effort to ensure information on this Site is accurate and up to date.
+        However, the digital and financial landscape changes rapidly. We cannot guarantee that all
+        content is current, complete, or error-free. If you spot something inaccurate, please
+        <a href="/contact">let us know</a>.
+      </p>
+
+      <h2>Advertising</h2>
+      <p>
+        This Site displays advertisements served by Google AdSense. Google uses cookies to serve
+        ads based on your prior visits to this and other websites. You can opt out of personalised
+        advertising via <a href="https://adssettings.google.com" target="_blank" rel="noopener noreferrer">Google's Ad Settings</a>.
+        Advertising income helps keep this Site free to access. Advertisers have no influence over
+        editorial content.
+      </p>
+
+      <h2>Contact</h2>
+      <p>
+        For questions about this Disclaimer, please use the <a href="/contact">Contact page</a>.
+      </p>
+    </article>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 680px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(226, 226, 240, 0.35);
+    margin-bottom: 2.5rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #6E56CF;
+  }
+
+  .prose-page h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 0.5rem;
+  }
+
+  .meta {
+    font-size: 0.75rem !important;
+    color: rgba(226, 226, 240, 0.3) !important;
+    margin-bottom: 2rem !important;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(226, 226, 240, 0.07);
+  }
+
+  .prose-page h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose-page p {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+  }
+
+  .prose-page strong {
+    color: #E2E2F0;
+    font-weight: 600;
+  }
+
+  .prose-page a {
+    color: #6E56CF;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .prose-page a:hover {
+    color: #00E5A0;
+  }
+</style>

@@ -1,11 +1,14 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import SiteFooter from '../components/SiteFooter.astro';
+import { readingTime } from '../utils/readingTime';
 
 const posts = (await getCollection('blog', ({ data }) => !data.draft))
   .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime());
 
 const latestPost = posts[0] ?? null;
+const recentPosts = posts.slice(1, 4);
 ---
 
 <BaseLayout
@@ -48,11 +51,13 @@ const latestPost = posts[0] ?? null;
         </span>
 
         <h1 class="hero-headline">
-          Building income stacks. One 
-          <span class="headline-accent">side quest</span> at a time.
+          Building income stacks.<br>One <span class="headline-accent">side quest</span> at a time.
         </h1>
 
-        <p class="hero-desc">For burned-out employees quietly building their escape plan.</p>
+        <p class="hero-desc">
+          For burned-out employees quietly building their escape plan. Real strategies, honest
+          numbers, no overnight-success mythology.
+        </p>
 
         <nav class="hero-nav" aria-label="Primary navigation">
           <a href="/blog" class="btn btn-primary">Read the Blog</a>
@@ -62,6 +67,14 @@ const latestPost = posts[0] ?? null;
       </div>
 
     </section>
+
+    <!-- Scroll indicator -->
+    <div class="scroll-hint" aria-hidden="true">
+      <span class="scroll-hint-line"></span>
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polyline points="6 9 12 15 18 9"/>
+      </svg>
+    </div>
 
     <!-- ===================== LATEST POST ===================== -->
     {latestPost && (
@@ -73,19 +86,128 @@ const latestPost = posts[0] ?? null;
 
         <a href={`/blog/${latestPost.slug}`} class="latest-card">
           <div class="latest-card-body">
+            <div class="latest-meta">
+              <time datetime={latestPost.data.pubDate.toISOString()}>
+                {latestPost.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+              </time>
+              <span>·</span>
+              <span>{readingTime(latestPost.body)} min read</span>
+              {latestPost.data.tags && latestPost.data.tags.slice(0, 2).map((tag) => (
+                <span class="latest-tag">{tag}</span>
+              ))}
+            </div>
             <h2 class="latest-title">{latestPost.data.title}</h2>
             <p class="latest-excerpt">{latestPost.data.description}</p>
           </div>
-          <span class="latest-read-more">
+          <span class="latest-read-more" aria-label={`Read ${latestPost.data.title}`}>
             Read more <span aria-hidden="true">&#8594;</span>
           </span>
         </a>
+
+        {recentPosts.length > 0 && (
+          <ul class="recent-list" role="list" aria-label="More recent posts">
+            {recentPosts.map((post) => (
+              <li>
+                <a href={`/blog/${post.slug}`} class="recent-item">
+                  <span class="recent-title">{post.data.title}</span>
+                  <span class="recent-right">
+                    <time class="recent-date" datetime={post.data.pubDate.toISOString()}>
+                      {post.data.pubDate.toLocaleDateString('en-US', { month: 'short', day: 'numeric' })}
+                    </time>
+                    <span class="recent-arrow" aria-hidden="true">&#8594;</span>
+                  </span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        )}
       </section>
     )}
 
-    <footer class="lp-footer">
-      <p>&copy; {new Date().getFullYear()} Side Quests To Freedom</p>
-    </footer>
+    <!-- ===================== WHAT YOU'LL FIND ===================== -->
+    <section class="topics-section" aria-label="What you'll find here">
+      <div class="section-label">
+        <span class="section-dot" aria-hidden="true"></span>
+        <span>What You'll Find Here</span>
+      </div>
+
+      <p class="topics-intro">
+        Side Quests To Freedom covers the practical side of building income outside your day job —
+        no recycled advice, no overnight-success mythology. Just honest guides, real numbers, and
+        the strategies that hold up over time.
+      </p>
+
+      <ul class="topics-grid" role="list">
+        <li class="topic-card">
+          <div class="topic-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+            </svg>
+          </div>
+          <div class="topic-body">
+            <h3 class="topic-title">Side Hustle Guides</h3>
+            <p class="topic-desc">
+              Step-by-step breakdowns of specific side hustles — what they actually involve, how
+              much you can realistically earn, and how to get started without quitting your job.
+            </p>
+          </div>
+        </li>
+
+        <li class="topic-card">
+          <div class="topic-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/>
+              <line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+          </div>
+          <div class="topic-body">
+            <h3 class="topic-title">Income Reports</h3>
+            <p class="topic-desc">
+              Transparent breakdowns of what's earning, what flopped, and why. Real figures help
+              you calibrate your expectations and avoid the traps that waste months of effort.
+            </p>
+          </div>
+        </li>
+
+        <li class="topic-card">
+          <div class="topic-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"/>
+              <path d="M12 8v4l3 3"/>
+            </svg>
+          </div>
+          <div class="topic-body">
+            <h3 class="topic-title">Strategy & Systems</h3>
+            <p class="topic-desc">
+              How to manage a side hustle alongside a full-time job without burning out — time
+              management, prioritisation, and building systems that compound over months, not days.
+            </p>
+          </div>
+        </li>
+
+        <li class="topic-card">
+          <div class="topic-icon" aria-hidden="true">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="3" width="20" height="14" rx="2"/>
+              <path d="M8 21h8M12 17v4"/>
+            </svg>
+          </div>
+          <div class="topic-body">
+            <h3 class="topic-title">Tools & Resources</h3>
+            <p class="topic-desc">
+              Honest reviews of the platforms, apps, and services worth using — and the ones to
+              skip. Only tools that have been tested in practice make the list.
+            </p>
+          </div>
+        </li>
+      </ul>
+
+      <a href="/blog" class="topics-cta">
+        Browse all posts <span aria-hidden="true">&#8594;</span>
+      </a>
+    </section>
+
+    <SiteFooter />
 
   </main>
 
@@ -119,9 +241,9 @@ const latestPost = posts[0] ?? null;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 2.5rem 2rem;
+    padding: 2.5rem 2.5rem 4rem;
     gap: 0;
   }
 
@@ -129,10 +251,11 @@ const latestPost = posts[0] ?? null;
   .hero {
     flex: 1;
     display: grid;
-    grid-template-columns: 1fr 1.3fr;
+    grid-template-columns: 1fr 1.4fr;
     align-items: center;
-    gap: 4rem;
-    padding: 1rem 0;
+    gap: 5rem;
+    padding: 1rem 0 2rem;
+    min-height: calc(100vh - 52px - 5rem); /* full viewport minus nav */
   }
 
   /* ---- Profile side ---- */
@@ -143,43 +266,40 @@ const latestPost = posts[0] ?? null;
   }
 
   .avatar-lg {
-    width: 220px !important;
-    height: 220px !important;
+    width: 240px !important;
+    height: 240px !important;
   }
 
-  /* Thicker ring */
   .avatar-lg .avatar-ring {
     inset: -5px;
   }
 
   .avatar-inner-lg {
-    width: 220px !important;
-    height: 220px !important;
+    width: 240px !important;
+    height: 240px !important;
     outline-width: 5px !important;
   }
 
   .avatar-inner-lg .avatar-placeholder {
-    font-size: 5rem;
+    font-size: 5.5rem;
   }
 
   /* ---- Content side ---- */
   .hero-content {
     display: flex;
     flex-direction: column;
-    gap: 1.25rem;
+    gap: 1.35rem;
   }
 
   .hero-eyebrow {
     display: flex;
     align-items: center;
-    justify-content: center;
-    align-self: center;
     gap: 0.5rem;
     font-size: 0.72rem;
     font-weight: 600;
     letter-spacing: 0.18em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.4);
+    color: rgba(226, 226, 240, 0.35);
   }
 
   .eyebrow-dot {
@@ -192,11 +312,11 @@ const latestPost = posts[0] ?? null;
   }
 
   .hero-headline {
-    font-size: clamp(1.9rem, 4vw, 2.75rem);
+    font-size: clamp(2rem, 3.5vw, 3rem);
     font-weight: 700;
     color: #E2E2F0;
     letter-spacing: -0.03em;
-    line-height: 1.15;
+    line-height: 1.12;
   }
 
   .headline-accent {
@@ -207,10 +327,10 @@ const latestPost = posts[0] ?? null;
   }
 
   .hero-desc {
-    font-size: 0.95rem;
-    color: rgba(226, 226, 240, 0.55);
-    line-height: 1.65;
-    max-width: 420px;
+    font-size: 1rem;
+    color: rgba(226, 226, 240, 0.5);
+    line-height: 1.7;
+    max-width: 440px;
   }
 
   /* ---- Buttons ---- */
@@ -218,7 +338,8 @@ const latestPost = posts[0] ?? null;
     display: flex;
     flex-direction: column;
     gap: 0.55rem;
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
+    max-width: 340px;
   }
 
   .btn {
@@ -261,7 +382,7 @@ const latestPost = posts[0] ?? null;
 
   .btn-primary:hover {
     background: #7d67d8;
-    box-shadow: 0 6px 24px rgba(110, 86, 207, 0.5);
+    box-shadow: 0 6px 28px rgba(110, 86, 207, 0.55);
   }
 
   .btn-secondary {
@@ -277,8 +398,8 @@ const latestPost = posts[0] ?? null;
 
   .btn-ghost {
     background: transparent;
-    border-color: rgba(226, 226, 240, 0.12);
-    color: rgba(226, 226, 240, 0.55);
+    border-color: rgba(226, 226, 240, 0.1);
+    color: rgba(226, 226, 240, 0.45);
   }
 
   .btn-ghost:hover {
@@ -286,23 +407,46 @@ const latestPost = posts[0] ?? null;
     color: #00E5A0;
   }
 
-  /* ---- Latest Post ---- */
+  /* ---- Scroll hint ---- */
+  .scroll-hint {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    color: rgba(110, 86, 207, 0.4);
+    margin-bottom: 3rem;
+    animation: bounce-hint 2.4s ease-in-out infinite;
+  }
+
+  .scroll-hint-line {
+    display: block;
+    width: 1px;
+    height: 28px;
+    background: linear-gradient(to bottom, transparent, rgba(110, 86, 207, 0.4));
+  }
+
+  @keyframes bounce-hint {
+    0%, 100% { transform: translateY(0); opacity: 0.7; }
+    50%       { transform: translateY(5px); opacity: 1; }
+  }
+
+  /* ---- Latest post section ---- */
   .latest-section {
-    padding-top: 1.25rem;
-    margin-top: 1.5rem;
+    padding-top: 2rem;
+    padding-bottom: 3rem;
     border-top: 1px solid rgba(226, 226, 240, 0.06);
   }
 
   .latest-card {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
     justify-content: space-between;
     gap: 2rem;
-    margin-top: 0.75rem;
-    padding: 1rem 1.25rem;
+    margin-top: 1rem;
+    padding: 1.5rem 1.75rem;
     background: rgba(110, 86, 207, 0.06);
-    border: 1px solid rgba(110, 86, 207, 0.14);
-    border-radius: 12px;
+    border: 1px solid rgba(110, 86, 207, 0.18);
+    border-radius: 14px;
     text-decoration: none;
     color: #E2E2F0;
     transition: background 0.2s ease, border-color 0.2s ease,
@@ -313,10 +457,8 @@ const latestPost = posts[0] ?? null;
   .latest-card::before {
     content: '';
     position: absolute;
-    top: -1px;
-    left: -1px;
-    width: 12px;
-    height: 12px;
+    top: -1px; left: -1px;
+    width: 14px; height: 14px;
     border-top: 2px solid #6E56CF;
     border-left: 2px solid #6E56CF;
     border-radius: 2px 0 0 0;
@@ -327,10 +469,8 @@ const latestPost = posts[0] ?? null;
   .latest-card::after {
     content: '';
     position: absolute;
-    bottom: -1px;
-    right: -1px;
-    width: 12px;
-    height: 12px;
+    bottom: -1px; right: -1px;
+    width: 14px; height: 14px;
     border-bottom: 2px solid #6E56CF;
     border-right: 2px solid #6E56CF;
     border-radius: 0 0 2px 0;
@@ -340,9 +480,9 @@ const latestPost = posts[0] ?? null;
 
   .latest-card:hover {
     background: rgba(110, 86, 207, 0.12);
-    border-color: rgba(110, 86, 207, 0.3);
+    border-color: rgba(110, 86, 207, 0.35);
     transform: translateY(-2px);
-    box-shadow: 0 8px 30px rgba(110, 86, 207, 0.15);
+    box-shadow: 0 10px 40px rgba(110, 86, 207, 0.18);
   }
 
   .latest-card:hover::before,
@@ -353,87 +493,303 @@ const latestPost = posts[0] ?? null;
   .latest-card-body {
     display: flex;
     flex-direction: column;
-    gap: 0.4rem;
+    gap: 0.5rem;
     min-width: 0;
   }
 
+  .latest-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    color: rgba(226, 226, 240, 0.3);
+  }
+
+  .latest-tag {
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #6E56CF;
+    background: rgba(110, 86, 207, 0.12);
+    border: 1px solid rgba(110, 86, 207, 0.2);
+    border-radius: 3px;
+    padding: 0.1rem 0.4rem;
+  }
+
   .latest-title {
-    font-size: 1rem;
-    font-weight: 600;
+    font-size: 1.2rem;
+    font-weight: 700;
     color: #E2E2F0;
-    letter-spacing: -0.01em;
+    letter-spacing: -0.02em;
     line-height: 1.3;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
   }
 
   .latest-excerpt {
-    font-size: 0.83rem;
+    font-size: 0.875rem;
     color: rgba(226, 226, 240, 0.45);
-    line-height: 1.55;
+    line-height: 1.6;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     overflow: hidden;
+    max-width: 600px;
   }
 
   .latest-read-more {
-    font-size: 0.8rem;
+    font-size: 0.82rem;
     font-weight: 600;
     color: #6E56CF;
     white-space: nowrap;
     flex-shrink: 0;
-    transition: color 0.2s, transform 0.2s;
+    transition: color 0.2s;
   }
 
   .latest-card:hover .latest-read-more {
     color: #00E5A0;
   }
 
-  /* ---- Footer ---- */
-  .lp-footer {
-    text-align: center;
-    margin-top: 0;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(226, 226, 240, 0.05);
+  /* ---- Recent posts list ---- */
+  .recent-list {
+    list-style: none;
+    margin-top: 0.65rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
   }
 
-  .lp-footer p {
+  .recent-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.7rem 0.5rem;
+    border-bottom: 1px solid rgba(226, 226, 240, 0.05);
+    text-decoration: none;
+    color: #E2E2F0;
+    transition: padding-left 0.2s;
+  }
+
+  .recent-item:hover {
+    padding-left: 0.85rem;
+  }
+
+  .recent-title {
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(226, 226, 240, 0.65);
+    transition: color 0.2s;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    min-width: 0;
+  }
+
+  .recent-item:hover .recent-title {
+    color: #E2E2F0;
+  }
+
+  .recent-right {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .recent-date {
     font-size: 0.72rem;
-    color: rgba(226, 226, 240, 0.2);
+    color: rgba(226, 226, 240, 0.25);
+    white-space: nowrap;
+  }
+
+  .recent-arrow {
+    font-size: 0.85rem;
+    color: rgba(110, 86, 207, 0.35);
+    transition: color 0.2s, transform 0.2s;
+  }
+
+  .recent-item:hover .recent-arrow {
+    color: #6E56CF;
+    transform: translateX(3px);
+  }
+
+  /* ---- Topics section ---- */
+  .topics-section {
+    padding-top: 2rem;
+    padding-bottom: 1rem;
+    border-top: 1px solid rgba(226, 226, 240, 0.06);
+  }
+
+  .topics-intro {
+    font-size: 0.925rem;
+    color: rgba(226, 226, 240, 0.45);
+    line-height: 1.75;
+    margin: 0.85rem 0 1.75rem;
+    max-width: 680px;
+  }
+
+  .topics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.85rem;
+    list-style: none;
+    margin-bottom: 1.5rem;
+  }
+
+  .topic-card {
+    display: flex;
+    gap: 0.9rem;
+    padding: 1.1rem 1.25rem;
+    background: rgba(110, 86, 207, 0.05);
+    border: 1px solid rgba(110, 86, 207, 0.12);
+    border-radius: 12px;
+    transition: background 0.2s, border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+
+  .topic-card:hover {
+    background: rgba(110, 86, 207, 0.1);
+    border-color: rgba(110, 86, 207, 0.28);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 28px rgba(110, 86, 207, 0.12);
+  }
+
+  .topic-icon {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(110, 86, 207, 0.1);
+    border-radius: 8px;
+    color: #6E56CF;
+    margin-top: 1px;
+    transition: background 0.2s;
+  }
+
+  .topic-card:hover .topic-icon {
+    background: rgba(110, 86, 207, 0.2);
+  }
+
+  .topic-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3rem;
+  }
+
+  .topic-title {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #E2E2F0;
+    letter-spacing: -0.01em;
+  }
+
+  .topic-desc {
+    font-size: 0.815rem;
+    color: rgba(226, 226, 240, 0.42);
+    line-height: 1.65;
+  }
+
+  .topics-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.83rem;
+    font-weight: 600;
+    color: rgba(110, 86, 207, 0.65);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .topics-cta:hover {
+    color: #6E56CF;
   }
 
   /* ---- Responsive ---- */
+  @media (max-width: 860px) {
+    .lp-main {
+      padding: 2rem 1.75rem 3.5rem;
+    }
+
+    .hero {
+      grid-template-columns: 1fr 1.5fr;
+      gap: 3rem;
+      min-height: auto;
+      padding-bottom: 1.5rem;
+    }
+
+    .avatar-lg {
+      width: 180px !important;
+      height: 180px !important;
+    }
+
+    .avatar-inner-lg {
+      width: 180px !important;
+      height: 180px !important;
+    }
+
+    .avatar-inner-lg .avatar-placeholder {
+      font-size: 4rem;
+    }
+  }
+
   @media (max-width: 640px) {
     .lp-main {
-      padding: 2rem 1.25rem;
-      gap: 1.25rem;
+      padding: 2rem 1.25rem 3rem;
     }
 
     .hero {
       grid-template-columns: 1fr;
       gap: 1.75rem;
-      text-align: center;
-      padding: 1rem 0;
+      padding-bottom: 1rem;
+    }
+
+    .hero-profile {
+      order: -1;
+    }
+
+    .avatar-lg {
+      width: 140px !important;
+      height: 140px !important;
+    }
+
+    .avatar-inner-lg {
+      width: 140px !important;
+      height: 140px !important;
+    }
+
+    .avatar-inner-lg .avatar-placeholder {
+      font-size: 3rem;
+    }
+
+    .hero-nav {
+      max-width: 100%;
+    }
+
+    .scroll-hint {
+      display: none;
     }
 
     .latest-card {
       flex-direction: column;
       align-items: flex-start;
-      gap: 0.75rem;
+      gap: 1rem;
+      padding: 1.1rem 1.25rem;
     }
 
-    .latest-title {
-      white-space: normal;
+    .topics-grid {
+      grid-template-columns: 1fr;
     }
   }
 
   /* ---- Reduced motion ---- */
   @media (prefers-reduced-motion: reduce) {
     #geo-canvas { display: none; }
+    .scroll-hint { animation: none; }
     .btn:hover { transform: none; }
     .latest-card:hover { transform: none; }
+    .topic-card:hover { transform: none; }
   }
 </style>
 

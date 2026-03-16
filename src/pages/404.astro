@@ -1,0 +1,200 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="404 — Page Not Found · Side Quests To Freedom"
+  description="This page doesn't exist — but your escape plan still does."
+>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <main class="container fourohfour">
+
+    <div class="hud-frame" aria-hidden="true">
+      <span class="hud-corner hud-tl"></span>
+      <span class="hud-corner hud-tr"></span>
+      <span class="hud-corner hud-bl"></span>
+      <span class="hud-corner hud-br"></span>
+    </div>
+
+    <p class="error-code" aria-hidden="true">4 0 4</p>
+
+    <h1 class="error-heading">Quest Not Found</h1>
+
+    <p class="error-desc">
+      This page took a wrong turn somewhere. It might have moved, been deleted,
+      or never existed in the first place.
+    </p>
+
+    <nav class="error-nav" aria-label="Recovery options">
+      <a href="/" class="btn-home">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        Back to Home
+      </a>
+      <a href="/blog" class="btn-ghost">Read the Blog</a>
+      <a href="/search" class="btn-ghost">Search</a>
+    </nav>
+
+  </main>
+</BaseLayout>
+
+<style>
+  .fourohfour {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: calc(100vh - 52px);
+    position: relative;
+    max-width: 520px;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  /* ---- HUD corner brackets ---- */
+  .hud-frame {
+    position: absolute;
+    inset: 3rem 0;
+    pointer-events: none;
+  }
+
+  .hud-corner {
+    position: absolute;
+    width: 22px;
+    height: 22px;
+  }
+
+  .hud-tl {
+    top: 0; left: 0;
+    border-top: 1.5px solid rgba(110, 86, 207, 0.35);
+    border-left: 1.5px solid rgba(110, 86, 207, 0.35);
+  }
+
+  .hud-tr {
+    top: 0; right: 0;
+    border-top: 1.5px solid rgba(110, 86, 207, 0.35);
+    border-right: 1.5px solid rgba(110, 86, 207, 0.35);
+  }
+
+  .hud-bl {
+    bottom: 0; left: 0;
+    border-bottom: 1.5px solid rgba(110, 86, 207, 0.35);
+    border-left: 1.5px solid rgba(110, 86, 207, 0.35);
+  }
+
+  .hud-br {
+    bottom: 0; right: 0;
+    border-bottom: 1.5px solid rgba(110, 86, 207, 0.35);
+    border-right: 1.5px solid rgba(110, 86, 207, 0.35);
+  }
+
+  /* ---- Content ---- */
+  .error-code {
+    font-size: clamp(4.5rem, 14vw, 7.5rem);
+    font-weight: 700;
+    letter-spacing: 0.25em;
+    line-height: 1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, rgba(110, 86, 207, 0.6) 0%, rgba(0, 229, 160, 0.5) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    user-select: none;
+    animation: flicker 6s ease-in-out infinite;
+  }
+
+  @keyframes flicker {
+    0%, 92%, 96%, 100% { opacity: 1; }
+    93%, 95%            { opacity: 0.6; }
+    94%                 { opacity: 0.85; }
+  }
+
+  .error-heading {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.03em;
+    margin-bottom: 1rem;
+  }
+
+  .error-desc {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.45);
+    line-height: 1.7;
+    max-width: 340px;
+    margin-bottom: 2.5rem;
+  }
+
+  /* ---- Navigation ---- */
+  .error-nav {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .btn-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #fff;
+    background: #6E56CF;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 0.65rem 1.25rem;
+    text-decoration: none;
+    box-shadow: 0 4px 18px rgba(110, 86, 207, 0.35);
+    transition: background 0.2s, box-shadow 0.2s, transform 0.15s;
+  }
+
+  .btn-home:hover {
+    background: #7d67d8;
+    box-shadow: 0 6px 24px rgba(110, 86, 207, 0.5);
+    transform: translateY(-1px);
+  }
+
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: rgba(226, 226, 240, 0.5);
+    background: transparent;
+    border: 1px solid rgba(226, 226, 240, 0.1);
+    border-radius: 9px;
+    padding: 0.65rem 1.25rem;
+    text-decoration: none;
+    transition: color 0.2s, border-color 0.2s;
+  }
+
+  .btn-ghost:hover {
+    color: #E2E2F0;
+    border-color: rgba(110, 86, 207, 0.4);
+  }
+
+  @media (max-width: 480px) {
+    .hud-frame {
+      display: none;
+    }
+
+    .error-nav {
+      flex-direction: column;
+      width: 100%;
+    }
+
+    .btn-home,
+    .btn-ghost {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>

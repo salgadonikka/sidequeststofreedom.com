@@ -1,0 +1,156 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+
+<BaseLayout
+  title="About — Side Quests To Freedom"
+  description="Learn about Side Quests To Freedom — a resource for anyone building financial freedom through side hustles and online income."
+  canonicalUrl="https://sidequeststofreedom.com/about"
+>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
+  <div class="bg-orb bg-orb-2" aria-hidden="true"></div>
+
+  <main class="container page-container">
+    <nav class="breadcrumb">
+      <a href="/links" class="breadcrumb-link">Home</a>
+      <span aria-hidden="true">›</span>
+      <span>About</span>
+    </nav>
+
+    <article class="prose-page">
+      <h1>About Side Quests To Freedom</h1>
+
+      <p class="lead">
+        Side Quests To Freedom is a personal finance and side hustle resource dedicated to helping
+        everyday people build real, sustainable income outside their 9-to-5.
+      </p>
+
+      <h2>What This Site Is About</h2>
+      <p>
+        Financial freedom doesn't have to mean retiring at 30 or going viral overnight. For most
+        people, it starts with a side quest — a small, deliberate action taken alongside ordinary
+        life to build income, skills, and options over time.
+      </p>
+      <p>
+        This site covers the strategies, tools, and mindset shifts that make that possible:
+        freelancing, content creation, passive income streams, digital products, and more. No
+        get-rich-quick promises — just honest, tested approaches and the occasional reality check.
+      </p>
+
+      <h2>Who Runs This</h2>
+      <p>
+        Side Quests To Freedom is run by a solo creator who has spent years experimenting with side
+        hustles — some successful, some spectacular failures — and documenting what actually works.
+        The goal is to share real experience rather than recycled advice, so you spend less time
+        wading through noise and more time making progress.
+      </p>
+
+      <h2>What You'll Find Here</h2>
+      <ul>
+        <li>In-depth guides on starting and scaling specific side hustles</li>
+        <li>Honest reviews of platforms, tools, and services</li>
+        <li>Income reports and case studies grounded in real data</li>
+        <li>Actionable strategies for managing your time and money while building a side income</li>
+      </ul>
+
+      <h2>A Note on Affiliate Links</h2>
+      <p>
+        Some posts on this site contain affiliate links. If you purchase through one of these links,
+        I may earn a small commission at no extra cost to you. I only recommend products and
+        services I've used or thoroughly researched. See the full <a href="/disclaimer">Disclaimer</a>
+        for details.
+      </p>
+
+      <h2>Get in Touch</h2>
+      <p>
+        Questions, feedback, or collaboration inquiries are always welcome. Head over to the
+        <a href="/contact">Contact page</a> to reach out.
+      </p>
+    </article>
+
+    <SiteFooter />
+  </main>
+</BaseLayout>
+
+<style>
+  .page-container {
+    max-width: 680px;
+  }
+
+  .breadcrumb {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.75rem;
+    color: rgba(226, 226, 240, 0.35);
+    margin-bottom: 2.5rem;
+  }
+
+  .breadcrumb-link {
+    color: rgba(110, 86, 207, 0.6);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .breadcrumb-link:hover {
+    color: #6E56CF;
+  }
+
+  .prose-page h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.03em;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+  }
+
+  .lead {
+    font-size: 1.05rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.7;
+    margin-bottom: 2rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(226, 226, 240, 0.07);
+  }
+
+  .prose-page h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #E2E2F0;
+    letter-spacing: -0.02em;
+    margin: 2rem 0 0.75rem;
+  }
+
+  .prose-page p {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 1.1rem;
+  }
+
+  .prose-page ul {
+    padding-left: 1.5rem;
+    margin-bottom: 1.1rem;
+  }
+
+  .prose-page li {
+    font-size: 0.95rem;
+    color: rgba(226, 226, 240, 0.75);
+    line-height: 1.75;
+    margin-bottom: 0.35rem;
+  }
+
+  .prose-page a {
+    color: #6E56CF;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s;
+  }
+
+  .prose-page a:hover {
+    color: #00E5A0;
+  }
+</style>

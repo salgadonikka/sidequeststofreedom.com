@@ -1,8 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import LinkCard from '../../components/LinkCard.astro';
-
-const year = new Date().getFullYear();
+import SiteFooter from '../../components/SiteFooter.astro';
 ---
 
 <BaseLayout
@@ -153,10 +152,7 @@ const year = new Date().getFullYear();
     -->
 
     <!-- ===================== FOOTER ===================== -->
-    <footer class="site-footer">
-      <p>&copy; {year} Side Quests To Freedom</p>
-      <a href="https://sidequeststofreedom.com" class="footer-link">sidequeststofreedom.com</a>
-    </footer>
+    <SiteFooter />
 
   </main>
 

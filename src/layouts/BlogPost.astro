@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import { Image } from 'astro:assets';
 import AdUnit from '../components/AdUnit.astro';
+import SiteFooter from '../components/SiteFooter.astro';
 import TableOfContents from '../components/TableOfContents.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import ShareButtons from '../components/ShareButtons.astro';
@@ -137,6 +138,8 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
       <footer class="post-footer">
         <a href="/blog" class="back-link">&#8592; All posts</a>
       </footer>
+
+      <SiteFooter />
     </div>
 
     <!-- Sidebar (desktop only) -->
