@@ -29,8 +29,8 @@ const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
 <style>
   .toc {
     padding: 1.25rem;
-    background: rgba(110, 86, 207, 0.05);
-    border: 1px solid rgba(110, 86, 207, 0.15);
+    background: rgba(var(--purple-rgb), 0.05);
+    border: 1px solid rgba(var(--purple-rgb), 0.15);
     border-radius: 10px;
   }
 
@@ -39,7 +39,7 @@ const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.45);
     margin-bottom: 0.75rem;
   }
 
@@ -60,7 +60,7 @@ const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
   .toc-link {
     font-size: 0.8rem;
-    color: rgba(226, 226, 240, 0.55);
+    color: rgba(var(--text-rgb), 0.6);
     text-decoration: none;
     display: block;
     padding: 0.2rem 0;
@@ -71,8 +71,8 @@ const filtered = headings.filter((h) => h.depth === 2 || h.depth === 3);
 
   .toc-link:hover,
   .toc-link.active {
-    color: #6E56CF;
-    border-left-color: #6E56CF;
+    color: var(--purple);
+    border-left-color: var(--purple);
   }
 </style>
 

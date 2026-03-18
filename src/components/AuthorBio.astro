@@ -32,8 +32,8 @@ const author = {
     align-items: flex-start;
     margin-top: 2.5rem;
     padding: 1.25rem;
-    background: rgba(110, 86, 207, 0.05);
-    border: 1px solid rgba(110, 86, 207, 0.12);
+    background: rgba(var(--purple-rgb), 0.05);
+    border: 1px solid rgba(var(--purple-rgb), 0.12);
     border-radius: 10px;
   }
 
@@ -47,7 +47,7 @@ const author = {
     height: 56px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid rgba(110, 86, 207, 0.3);
+    border: 2px solid rgba(var(--purple-rgb), 0.3);
   }
 
   .author-avatar-fallback {
@@ -55,13 +55,13 @@ const author = {
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: rgba(110, 86, 207, 0.2);
-    border: 2px solid rgba(110, 86, 207, 0.3);
+    background: rgba(var(--purple-rgb), 0.2);
+    border: 2px solid rgba(var(--purple-rgb), 0.3);
     align-items: center;
     justify-content: center;
     font-size: 1rem;
     font-weight: 700;
-    color: #6E56CF;
+    color: var(--purple);
   }
 
   .author-info {
@@ -73,12 +73,12 @@ const author = {
   .author-name {
     font-size: 0.85rem;
     font-weight: 700;
-    color: #E2E2F0;
+    color: var(--text);
   }
 
   .author-text {
     font-size: 0.82rem;
-    color: rgba(226, 226, 240, 0.5);
+    color: rgba(var(--text-rgb), 0.6);
     line-height: 1.55;
   }
 </style>

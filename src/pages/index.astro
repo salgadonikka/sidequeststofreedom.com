@@ -797,8 +797,19 @@ const recentPosts = posts.slice(1, 4);
   const canvas = document.getElementById('geo-canvas') as HTMLCanvasElement;
   const ctx = canvas.getContext('2d')!;
 
-  const PURPLE = 'rgba(110, 86, 207, ';
-  const GREEN  = 'rgba(0, 229, 160, ';
+  function getCanvasColors() {
+    const style = getComputedStyle(document.documentElement);
+    const p = style.getPropertyValue('--purple-rgb').trim() || '110, 86, 207';
+    const g = style.getPropertyValue('--green-rgb').trim() || '0, 229, 160';
+    return { PURPLE: `rgba(${p}, `, GREEN: `rgba(${g}, ` };
+  }
+  let { PURPLE, GREEN } = getCanvasColors();
+
+  // Update colors when theme changes
+  const themeObserver = new MutationObserver(() => {
+    ({ PURPLE, GREEN } = getCanvasColors());
+  });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 
   function resize() {
     canvas.width  = window.innerWidth;

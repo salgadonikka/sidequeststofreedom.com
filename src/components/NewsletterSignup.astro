@@ -24,8 +24,8 @@ const FORM_ACTION = 'https://your-newsletter-form-action-url';
   .newsletter {
     margin-top: 3rem;
     padding: 1.75rem;
-    background: rgba(0, 229, 160, 0.04);
-    border: 1px solid rgba(0, 229, 160, 0.15);
+    background: rgba(var(--green-rgb), 0.04);
+    border: 1px solid rgba(var(--green-rgb), 0.15);
     border-radius: 12px;
     text-align: center;
   }
@@ -35,21 +35,21 @@ const FORM_ACTION = 'https://your-newsletter-form-action-url';
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #00E5A0;
+    color: var(--green);
     margin-bottom: 0.5rem;
   }
 
   .newsletter-heading {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #E2E2F0;
+    color: var(--text);
     margin-bottom: 0.5rem;
     letter-spacing: -0.02em;
   }
 
   .newsletter-sub {
     font-size: 0.85rem;
-    color: rgba(226, 226, 240, 0.5);
+    color: rgba(var(--text-rgb), 0.6);
     line-height: 1.55;
     margin-bottom: 1.25rem;
   }
@@ -65,9 +65,9 @@ const FORM_ACTION = 'https://your-newsletter-form-action-url';
     flex: 1;
     font-family: inherit;
     font-size: 0.875rem;
-    color: #E2E2F0;
-    background: rgba(226, 226, 240, 0.05);
-    border: 1px solid rgba(226, 226, 240, 0.12);
+    color: var(--text);
+    background: rgba(var(--text-rgb), 0.05);
+    border: 1px solid rgba(var(--text-rgb), 0.12);
     border-radius: 8px;
     padding: 0.6rem 0.9rem;
     outline: none;
@@ -75,19 +75,19 @@ const FORM_ACTION = 'https://your-newsletter-form-action-url';
   }
 
   .newsletter-input::placeholder {
-    color: rgba(226, 226, 240, 0.3);
+    color: rgba(var(--text-rgb), 0.35);
   }
 
   .newsletter-input:focus {
-    border-color: #00E5A0;
+    border-color: var(--green);
   }
 
   .newsletter-btn {
     font-family: inherit;
     font-size: 0.875rem;
     font-weight: 600;
-    color: #060610;
-    background: #00E5A0;
+    color: var(--bg);
+    background: var(--green);
     border: none;
     border-radius: 8px;
     padding: 0.6rem 1.1rem;

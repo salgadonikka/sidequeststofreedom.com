@@ -114,24 +114,24 @@ import SiteFooter from '../components/SiteFooter.astro';
     align-items: center;
     gap: 0.5rem;
     font-size: 0.75rem;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.35);
     margin-bottom: 2.5rem;
   }
 
   .breadcrumb-link {
-    color: rgba(110, 86, 207, 0.6);
+    color: rgba(var(--purple-rgb), 0.6);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .breadcrumb-link:hover {
-    color: #6E56CF;
+    color: var(--purple);
   }
 
   .prose-page h1 {
     font-size: 2rem;
     font-weight: 700;
-    color: #E2E2F0;
+    color: var(--text);
     letter-spacing: -0.03em;
     line-height: 1.2;
     margin-bottom: 1.5rem;
@@ -139,7 +139,7 @@ import SiteFooter from '../components/SiteFooter.astro';
 
   .lead {
     font-size: 1.05rem;
-    color: rgba(226, 226, 240, 0.75);
+    color: rgba(var(--text-rgb), 0.75);
     line-height: 1.7;
     margin-bottom: 2rem;
   }
@@ -157,17 +157,17 @@ import SiteFooter from '../components/SiteFooter.astro';
     align-items: center;
     gap: 1rem;
     padding: 0.9rem 1.2rem;
-    background: rgba(110, 86, 207, 0.07);
-    border: 1px solid rgba(110, 86, 207, 0.18);
+    background: rgba(var(--purple-rgb), 0.07);
+    border: 1px solid rgba(var(--purple-rgb), 0.18);
     border-radius: 10px;
     text-decoration: none;
-    color: #E2E2F0;
+    color: var(--text);
     transition: background 0.2s, border-color 0.2s;
   }
 
   .contact-card:hover {
-    background: rgba(110, 86, 207, 0.14);
-    border-color: rgba(110, 86, 207, 0.4);
+    background: rgba(var(--purple-rgb), 0.14);
+    border-color: rgba(var(--purple-rgb), 0.4);
   }
 
   .contact-icon {
@@ -177,14 +177,14 @@ import SiteFooter from '../components/SiteFooter.astro';
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(110, 86, 207, 0.12);
+    background: rgba(var(--purple-rgb), 0.12);
     border-radius: 8px;
-    color: #6E56CF;
+    color: var(--purple);
     transition: background 0.2s;
   }
 
   .contact-card:hover .contact-icon {
-    background: rgba(110, 86, 207, 0.22);
+    background: rgba(var(--purple-rgb), 0.22);
   }
 
   .contact-body {
@@ -200,13 +200,13 @@ import SiteFooter from '../components/SiteFooter.astro';
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.45);
   }
 
   .contact-value {
     font-size: 0.9rem;
     font-weight: 500;
-    color: #E2E2F0;
+    color: var(--text);
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
@@ -214,27 +214,27 @@ import SiteFooter from '../components/SiteFooter.astro';
 
   .contact-arrow {
     font-size: 1rem;
-    color: rgba(110, 86, 207, 0.4);
+    color: rgba(var(--purple-rgb), 0.4);
     flex-shrink: 0;
     transition: color 0.2s;
   }
 
   .contact-card:hover .contact-arrow {
-    color: #6E56CF;
+    color: var(--purple);
   }
 
   /* Prose */
   .prose-page h2 {
     font-size: 1.2rem;
     font-weight: 700;
-    color: #E2E2F0;
+    color: var(--text);
     letter-spacing: -0.02em;
     margin: 2rem 0 0.75rem;
   }
 
   .prose-page p {
     font-size: 0.95rem;
-    color: rgba(226, 226, 240, 0.75);
+    color: rgba(var(--text-rgb), 0.75);
     line-height: 1.75;
     margin-bottom: 1.1rem;
   }
@@ -246,21 +246,21 @@ import SiteFooter from '../components/SiteFooter.astro';
 
   .prose-page li {
     font-size: 0.95rem;
-    color: rgba(226, 226, 240, 0.75);
+    color: rgba(var(--text-rgb), 0.75);
     line-height: 1.75;
     margin-bottom: 0.35rem;
   }
 
   .prose-page strong {
-    color: #E2E2F0;
+    color: var(--text);
     font-weight: 600;
   }
 
   .note {
     font-size: 0.85rem !important;
-    color: rgba(226, 226, 240, 0.4) !important;
+    color: rgba(var(--text-rgb), 0.55) !important;
     padding: 0.85rem 1rem;
-    border-left: 2px solid rgba(110, 86, 207, 0.3);
+    border-left: 2px solid rgba(var(--purple-rgb), 0.3);
     margin-top: 1.5rem;
   }
 </style>

@@ -40,7 +40,7 @@ const encodedTitle = encodeURIComponent(title);
     flex-wrap: wrap;
     margin-top: 2.5rem;
     padding-top: 1.75rem;
-    border-top: 1px solid rgba(226, 226, 240, 0.07);
+    border-top: 1px solid rgba(var(--text-rgb), 0.07);
   }
 
   .share-label {
@@ -48,7 +48,7 @@ const encodedTitle = encodeURIComponent(title);
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.45);
     margin-right: 0.25rem;
   }
 
@@ -56,9 +56,9 @@ const encodedTitle = encodeURIComponent(title);
     font-family: inherit;
     font-size: 0.78rem;
     font-weight: 500;
-    color: rgba(110, 86, 207, 0.8);
-    background: rgba(110, 86, 207, 0.08);
-    border: 1px solid rgba(110, 86, 207, 0.2);
+    color: rgba(var(--purple-rgb), 0.8);
+    background: rgba(var(--purple-rgb), 0.08);
+    border: 1px solid rgba(var(--purple-rgb), 0.2);
     border-radius: 6px;
     padding: 0.3rem 0.75rem;
     cursor: pointer;
@@ -67,8 +67,8 @@ const encodedTitle = encodeURIComponent(title);
   }
 
   .share-btn:hover {
-    background: rgba(110, 86, 207, 0.18);
-    color: #6E56CF;
-    border-color: rgba(110, 86, 207, 0.4);
+    background: rgba(var(--purple-rgb), 0.18);
+    color: var(--purple);
+    border-color: rgba(var(--purple-rgb), 0.4);
   }
 </style>

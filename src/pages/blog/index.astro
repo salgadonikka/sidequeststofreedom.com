@@ -214,14 +214,14 @@ const [featured, ...rest] = posts;
     font-weight: 700;
     letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.3);
+    color: rgba(var(--text-rgb), 0.45);
     margin-bottom: 0.6rem;
   }
 
   .sidebar-tags {
     padding: 1rem;
-    background: rgba(110, 86, 207, 0.04);
-    border: 1px solid rgba(110, 86, 207, 0.12);
+    background: rgba(var(--purple-rgb), 0.04);
+    border: 1px solid rgba(var(--purple-rgb), 0.12);
     border-radius: 10px;
   }
 
@@ -251,13 +251,13 @@ const [featured, ...rest] = posts;
 
   .back-link {
     font-size: 0.8rem;
-    color: rgba(110, 86, 207, 0.6);
+    color: rgba(var(--purple-rgb), 0.6);
     text-decoration: none;
     transition: color 0.2s;
   }
 
   .back-link:hover {
-    color: #6E56CF;
+    color: var(--purple);
   }
 
   .blog-stats {
@@ -277,7 +277,7 @@ const [featured, ...rest] = posts;
   .stat-num {
     font-size: 1.1rem;
     font-weight: 700;
-    color: #E2E2F0;
+    color: var(--text);
   }
 
   .stat-label {
@@ -285,7 +285,7 @@ const [featured, ...rest] = posts;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.3);
+    color: rgba(var(--text-rgb), 0.45);
   }
 
   .search-link {
@@ -293,17 +293,17 @@ const [featured, ...rest] = posts;
     align-items: center;
     gap: 0.35rem;
     font-size: 0.78rem;
-    color: rgba(110, 86, 207, 0.7);
+    color: rgba(var(--purple-rgb), 0.7);
     text-decoration: none;
-    border: 1px solid rgba(110, 86, 207, 0.2);
+    border: 1px solid rgba(var(--purple-rgb), 0.2);
     border-radius: 6px;
     padding: 0.3rem 0.7rem;
     transition: color 0.2s, border-color 0.2s;
   }
 
   .search-link:hover {
-    color: #6E56CF;
-    border-color: rgba(110, 86, 207, 0.4);
+    color: var(--purple);
+    border-color: rgba(var(--purple-rgb), 0.4);
   }
 
   /* ---- Tag filter ---- */
@@ -331,9 +331,9 @@ const [featured, ...rest] = posts;
     font-weight: 600;
     letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: rgba(226, 226, 240, 0.45);
+    color: rgba(var(--text-rgb), 0.45);
     background: transparent;
-    border: 1px solid rgba(226, 226, 240, 0.1);
+    border: 1px solid rgba(var(--text-rgb), 0.1);
     border-radius: 5px;
     padding: 0.25rem 0.6rem;
     cursor: pointer;
@@ -342,9 +342,9 @@ const [featured, ...rest] = posts;
 
   .tag-btn:hover,
   .tag-btn.active {
-    color: #6E56CF;
-    border-color: rgba(110, 86, 207, 0.35);
-    background: rgba(110, 86, 207, 0.08);
+    color: var(--purple);
+    border-color: rgba(var(--purple-rgb), 0.35);
+    background: rgba(var(--purple-rgb), 0.08);
   }
 
   /* ---- Featured card ---- */
@@ -354,8 +354,8 @@ const [featured, ...rest] = posts;
     justify-content: space-between;
     gap: 1rem;
     padding: 1.25rem;
-    background: rgba(110, 86, 207, 0.07);
-    border: 1px solid rgba(110, 86, 207, 0.2);
+    background: rgba(var(--purple-rgb), 0.07);
+    border: 1px solid rgba(var(--purple-rgb), 0.2);
     border-radius: 12px;
     text-decoration: none;
     margin-bottom: 1rem;
@@ -363,8 +363,8 @@ const [featured, ...rest] = posts;
   }
 
   .featured-card:hover {
-    border-color: rgba(110, 86, 207, 0.45);
-    background: rgba(110, 86, 207, 0.12);
+    border-color: rgba(var(--purple-rgb), 0.45);
+    background: rgba(var(--purple-rgb), 0.12);
   }
 
   .featured-body {
@@ -379,20 +379,20 @@ const [featured, ...rest] = posts;
     font-weight: 700;
     letter-spacing: 0.12em;
     text-transform: uppercase;
-    color: #00E5A0;
+    color: var(--green);
   }
 
   .featured-title {
     font-size: 1.15rem;
     font-weight: 700;
-    color: #E2E2F0;
+    color: var(--text);
     letter-spacing: -0.02em;
     line-height: 1.25;
   }
 
   .featured-desc {
     font-size: 0.855rem;
-    color: rgba(226, 226, 240, 0.55);
+    color: rgba(var(--text-rgb), 0.65);
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -406,7 +406,7 @@ const [featured, ...rest] = posts;
     flex-wrap: wrap;
     gap: 0.4rem;
     font-size: 0.72rem;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.5);
     margin-top: 0.1rem;
   }
 
@@ -415,22 +415,22 @@ const [featured, ...rest] = posts;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #6E56CF;
-    background: rgba(110, 86, 207, 0.12);
-    border: 1px solid rgba(110, 86, 207, 0.2);
+    color: var(--purple);
+    background: rgba(var(--purple-rgb), 0.12);
+    border: 1px solid rgba(var(--purple-rgb), 0.2);
     border-radius: 3px;
     padding: 0.1rem 0.4rem;
   }
 
   .featured-arrow {
     font-size: 1.1rem;
-    color: rgba(110, 86, 207, 0.4);
+    color: rgba(var(--purple-rgb), 0.4);
     flex-shrink: 0;
     transition: color 0.2s;
   }
 
   .featured-card:hover .featured-arrow {
-    color: #6E56CF;
+    color: var(--purple);
   }
 
   /* ---- Posts grid ---- */
@@ -446,18 +446,18 @@ const [featured, ...rest] = posts;
     flex-direction: column;
     gap: 0.5rem;
     padding: 0.9rem 1rem;
-    background: rgba(110, 86, 207, 0.07);
-    border: 1px solid rgba(110, 86, 207, 0.18);
+    background: rgba(var(--purple-rgb), 0.07);
+    border: 1px solid rgba(var(--purple-rgb), 0.18);
     border-radius: 10px;
     text-decoration: none;
-    color: #E2E2F0;
+    color: var(--text);
     min-width: 0;
     transition: background 0.2s, border-color 0.2s;
   }
 
   .post-card:hover {
-    background: rgba(110, 86, 207, 0.12);
-    border-color: rgba(110, 86, 207, 0.35);
+    background: rgba(var(--purple-rgb), 0.12);
+    border-color: rgba(var(--purple-rgb), 0.35);
   }
 
   .post-card-body {
@@ -471,13 +471,13 @@ const [featured, ...rest] = posts;
   .post-card-body .link-title {
     font-size: 0.9rem;
     font-weight: 600;
-    color: #E2E2F0;
+    color: var(--text);
     line-height: 1.35;
   }
 
   .post-card-body .link-sub {
     font-size: 0.8rem;
-    color: rgba(226, 226, 240, 0.5);
+    color: rgba(var(--text-rgb), 0.6);
     line-height: 1.5;
     display: -webkit-box;
     -webkit-line-clamp: 3;
@@ -495,26 +495,26 @@ const [featured, ...rest] = posts;
 
   .post-date {
     font-size: 0.7rem;
-    color: rgba(226, 226, 240, 0.3);
+    color: rgba(var(--text-rgb), 0.45);
     letter-spacing: 0.04em;
     white-space: nowrap;
   }
 
   .read-time {
     font-size: 0.68rem;
-    color: rgba(226, 226, 240, 0.25);
+    color: rgba(var(--text-rgb), 0.4);
     white-space: nowrap;
   }
 
   .link-arrow {
     margin-left: auto;
     font-size: 0.9rem;
-    color: rgba(110, 86, 207, 0.4);
+    color: rgba(var(--purple-rgb), 0.4);
     transition: color 0.2s;
   }
 
   .post-card:hover .link-arrow {
-    color: #6E56CF;
+    color: var(--purple);
   }
 
   .post-tag-list {
@@ -530,23 +530,23 @@ const [featured, ...rest] = posts;
     font-weight: 600;
     letter-spacing: 0.08em;
     text-transform: uppercase;
-    color: #6E56CF;
-    background: rgba(110, 86, 207, 0.1);
-    border: 1px solid rgba(110, 86, 207, 0.18);
+    color: var(--purple);
+    background: rgba(var(--purple-rgb), 0.1);
+    border: 1px solid rgba(var(--purple-rgb), 0.18);
     border-radius: 3px;
     padding: 0.15rem 0.4rem;
   }
 
   .no-results {
     font-size: 0.875rem;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.5);
     text-align: center;
     padding: 2rem 0;
   }
 
   .empty-state {
     font-size: 0.875rem;
-    color: rgba(226, 226, 240, 0.35);
+    color: rgba(var(--text-rgb), 0.5);
     text-align: center;
     padding: 3rem 0;
   }

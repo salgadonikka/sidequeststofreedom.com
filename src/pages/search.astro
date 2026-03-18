@@ -56,11 +56,11 @@ import BaseLayout from '../layouts/BaseLayout.astro';
   /* Style the Pagefind UI to match the site */
   :root {
     --pagefind-ui-scale: 0.9;
-    --pagefind-ui-primary: #6E56CF;
-    --pagefind-ui-text: #E2E2F0;
-    --pagefind-ui-background: rgba(110, 86, 207, 0.05);
-    --pagefind-ui-border: rgba(110, 86, 207, 0.2);
-    --pagefind-ui-tag: rgba(110, 86, 207, 0.12);
+    --pagefind-ui-primary: var(--purple);
+    --pagefind-ui-text: var(--text);
+    --pagefind-ui-background: rgba(var(--purple-rgb), 0.05);
+    --pagefind-ui-border: rgba(var(--purple-rgb), 0.2);
+    --pagefind-ui-tag: rgba(var(--purple-rgb), 0.12);
     --pagefind-ui-border-width: 1px;
     --pagefind-ui-border-radius: 8px;
     --pagefind-ui-font: inherit;
