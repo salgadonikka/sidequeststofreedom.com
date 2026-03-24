@@ -30,7 +30,7 @@ Astro static site with MDX support and Pagefind full-text search. Deployed to Cl
 
 **Layout hierarchy:**
 ```
-BaseLayout.astro       ← <html>, meta tags, AdSense, fonts
+BaseLayout.astro       ← <html>, meta tags, GA4, AdSense, fonts
   └─ BlogPost.astro    ← full blog post chrome (sidebar, TOC, share, author, newsletter)
 ```
 
@@ -57,5 +57,6 @@ coverAlt: "Alt text"     # required when coverImage is set
 
 - `src/utils/readingTime.ts` — word-count-based reading time estimate consumed by `[...slug].astro`
 - `AdUnit.astro` — wraps Google AdSense (`ca-pub-4780075669532262`); takes a `slot` prop and optional `format`
+- Google Analytics 4 measurement ID: `G-EM8BCQEJH0` — script injected globally in `BaseLayout.astro`
 - `TableOfContents.astro` — rendered twice per post: inline on mobile, sticky sidebar on desktop (hidden via CSS)
 - `ReadingProgress.astro` — scroll-progress bar injected at the top of blog posts

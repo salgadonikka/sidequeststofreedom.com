@@ -39,6 +39,15 @@ const {
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EM8BCQEJH0"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-EM8BCQEJH0');
+    </script>
+
     <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4780075669532262" crossorigin="anonymous"></script>
 
