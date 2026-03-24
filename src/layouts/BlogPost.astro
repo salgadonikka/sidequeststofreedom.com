@@ -7,7 +7,7 @@ import TableOfContents from '../components/TableOfContents.astro';
 import RelatedPosts from '../components/RelatedPosts.astro';
 import ShareButtons from '../components/ShareButtons.astro';
 import AuthorBio from '../components/AuthorBio.astro';
-import NewsletterSignup from '../components/NewsletterSignup.astro';
+// import NewsletterSignup from '../components/NewsletterSignup.astro';
 import ReadingProgress from '../components/ReadingProgress.astro';
 
 interface Heading {
@@ -51,9 +51,13 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
   month: 'long',
   day: 'numeric',
 });
+
+const ogImage = coverImage
+  ? `https://sidequeststofreedom.com${coverImage.src}`
+  : undefined;
 ---
 
-<BaseLayout title={`${title} — Side Quests To Freedom`} description={description}>
+<BaseLayout title={`${title} — Side Quests To Freedom`} description={description} canonicalUrl={postUrl} ogImage={ogImage}>
   <ReadingProgress />
   <div class="bg-grid" aria-hidden="true"></div>
   <div class="bg-orb bg-orb-1" aria-hidden="true"></div>
@@ -112,7 +116,7 @@ const formattedDate = pubDate.toLocaleDateString('en-US', {
 
       <ShareButtons title={title} url={postUrl} />
       <AuthorBio />
-      <NewsletterSignup />
+      {/* <NewsletterSignup /> */}
       <RelatedPosts posts={relatedPosts} />
 
       <!-- Prev / Next navigation -->

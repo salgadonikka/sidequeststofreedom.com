@@ -6,12 +6,14 @@ interface Props {
   title: string;
   description?: string;
   canonicalUrl?: string;
+  ogImage?: string;
 }
 
 const {
   title,
   description = 'Turning side hustles into financial freedom — one quest at a time.',
   canonicalUrl = 'https://sidequeststofreedom.com',
+  ogImage = 'https://sidequeststofreedom.com/images/og-default.png',
 } = Astro.props;
 ---
 
@@ -34,10 +36,20 @@ const {
     <meta name="description" content={description} />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Side Quests To Freedom" />
-    <meta property="og:description" content="Your strategic guide to financial freedom through side hustles." />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:type" content="website" />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <!-- RSS -->
+    <link rel="alternate" type="application/rss+xml" title="Side Quests To Freedom" href="/rss.xml" />
 
     <!-- Google Analytics 4 -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-EM8BCQEJH0"></script>
